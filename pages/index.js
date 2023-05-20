@@ -7,8 +7,10 @@ function index() {
   return (
     <div className='max-w-[1300px] m-auto flex h-[100vh]'>
       <Sidebar />
+      <div className='flex flex-1 scrollable-containers'>
       <Feeds />
-      <Widgets /> 
+      <Widgets />
+      </div>
     </div>
   )
 }
