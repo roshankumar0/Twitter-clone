@@ -13,63 +13,61 @@ import PostDetails from './PostDetails';
 const Post = (props) => {
     const { username, post, time, message, share, likes, views, taguser, profile } = props
     return (
-        <div className='flex flex-col'>
-            <div className='flex'>
-                <div>
-                    <img className=' mr-[12px]  h-[50px] w-[50px] rounded-full cursor-pointer' src={`${profile}`} alt="logo profile" />
-
-                </div>
-                <div className='flex-1'>
-                    <div className=' flex justify-between'>
-                        <div className='flex'>
-                            <span>{username.toUpperCase()}</span>
-                            <div className='text-color flex items-center'>
-                                <VscVerifiedFilled className='twitter-color' />
-                                <div className=' flex '>
-                                    <div>@{taguser.toUpperCase()}</div>
-                                    <div>.</div>
-                                    <div>{time}</div>
+        <div className='  border-t-[1px]'>
+            <div className='flex flex-col hover:bg-[gray] ease-in duration-300 px-[16px]'>
+                <div className='flex pt-[12px]'>
+                    <div>
+                        <img className=' mr-[12px]  h-[50px] w-[50px] rounded-full cursor-pointer' src={`${profile}`} alt="logo profile" />
+                    </div>
+                    <div className='flex-1 pb-[12px]'>
+                        <div className=' flex justify-between'>
+                            <div className='flex'>
+                                <span>{username.toUpperCase()}</span>
+                                <div className='text-color flex items-center'>
+                                    <VscVerifiedFilled className='twitter-color' />
+                                    <div className=' flex items-center justify-between'>
+                                        <div className='ml-[4px]'>@{taguser}  </div>
+                                        {/* <div className='ml-[4px]'>@{taguser.toUpperCase()}</div> */}
+                                        <div>.</div>
+                                        <div>{time}</div>
+                                    </div>
                                 </div>
+                            </div>
+                            <div>
+                                <IoIosMore />
                             </div>
                         </div>
                         <div>
-                            <IoIosMore />
+                        </div>
+                        <div className='flex-1'>
+                            <div className='mt-[12px]'>
+                                <img className='rounded-[20px] w-[100%] mr-[12px]   cursor-pointer' src={`${post}`} alt="" />
+                            </div>
+                        </div>
+                        <div className='flex items-center justify-between w-[425px] mt-[12px]'>
+                            <div className='flex items-center cursor-pointer hover:text-[#1D9BF0]'>
+                                <div className='hover:bg-[#4f3232] p-[8px] rounded-full'>
+                                    <AiOutlineMessage />
+                                </div>
+                                <h2 className='px-[12px]'>{message}</h2>
+                            </div>
+                            <div className='flex items-center cursor-pointer  '>
+                                <CiShare1 />
+                                <h2 className='px-[12px]'>{share}</h2>
+                            </div>
+                            <div className='flex items-center cursor-pointer'>
+                                <AiOutlineHeart />
+                                <h2 className='px-[12px]'>{likes}</h2>
+                            </div>
+                            <div className='flex items-center cursor-pointer'>
+                                <AiOutlineHeart />
+                                <h2 className='px-[12px]'>{views}</h2>
+                            </div>
+                            <div className='flex items-center cursor-pointer'>
+                                <BsArrowBarUp />
+                            </div>
                         </div>
                     </div>
-                    <div>
-                    </div>
-                    <div className='flex-1'>
-                        <div className='w-[404px]'>
-                            <img className='rounded-[20px] w-[100%] mr-[12px]   cursor-pointer' src={`${post}`} alt="" />
-                        </div>
-                        {/* <PostDetails Icon={AiOutlineMessage} message={message} color={`black`} />
-                        <PostDetails Icon={CiShare1} likes={likes}  color={`red`} />
-                        <PostDetails Icon={AiOutlineHeart} message={`20k`} color={`pink`} />
-                        <PostDetails Icon={SiSimpleanalytics} message={`250k`} color={`blue`} />
-                        <PostDetails Icon={BsArrowBarUp} message={`290`} color={`blue`} /> */}
-
-                    </div>
-                </div>
-            </div>
-            <div className='flex items-center justify-between'>
-                <div className='flex items-center'>
-                    <AiOutlineMessage />
-                    <h2 className='px-[12px]'>{message}</h2>
-                </div>
-                <div className='flex items-center'>
-                    <CiShare1 />
-                    <h2 className='px-[12px]'>{share}</h2>
-                </div>
-                <div className='flex items-center'>
-                    <AiOutlineHeart />
-                    <h2 className='px-[12px]'>{likes}</h2>
-                </div>
-                <div className='flex items-center'>
-                    <AiOutlineHeart />
-                    <h2 className='px-[12px]'>{views}</h2>
-                </div>
-                <div className='flex items-center'>
-                    <BsArrowBarUp />
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ function index() {
   return (
     <div className='max-w-[1300px] m-auto flex h-[100vh]'>
       <Sidebar />
-      <div className='flex flex-1 scrollable-containers'>
+      <div className='flex flex-1 overflow-y-scroll w-[990px]'>
       <Feeds />
       <Widgets />
       </div>
