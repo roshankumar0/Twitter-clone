@@ -17,35 +17,35 @@ const Sidebar = () => {
                     <div className='px-[12px]'> <BsTwitter className='h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]' />
                     </div>
                 </Link>
-                <div className='flex flex-col'>
-                    <Link href='/'>
+                <ul className='flex flex-col sidebarIcon'>
+                    <li> <Link href='/'>
                         <SidebarOptions active Icon={BiHomeCircle} text={'Home'} />
-                    </Link>
-                    <Link href='explore'>
+                    </Link></li>
+                    <li> <Link href='explore'>
                         <SidebarOptions Icon={BiHash} text={'Explore'} />
-                    </Link>
-                    <Link href={`/notification`}>
+                    </Link></li>
+                    <li> <Link href={`/notification`}>
                         <SidebarOptions Icon={IoMdNotificationsOutline} text={'Notifications'} />
-                    </Link>
-                    <Link href={`/message`}>
+                    </Link></li>
+                    <li>  <Link href={`/message`}>
                         <SidebarOptions Icon={BiMessageRounded} text={'Messages'} />
-                    </Link>
-                    <Link href={`/lists`}>
+                    </Link></li>
+                    <li> <Link href={`/lists`}>
                         <SidebarOptions Icon={CiViewList} text={'Lists'} />
-                    </Link>
-                    <Link href={`/bookmarks`}>
+                    </Link></li>
+                    <li>  <Link href={`/bookmarks`}>
                         <SidebarOptions Icon={BiBookmark} text={'Bookmarks'} />
-                    </Link>
-                    <Link href={`/twitterblue`}>
+                    </Link></li>
+                    <li> <Link href={`/twitterblue`}>
                         <SidebarOptions Icon={TiSocialTwitterCircular} text={'Twitter Blue'} />
-                    </Link>
-                    <Link href={`/profile`}>
+                    </Link></li>
+                    <li> <Link href={`/profile`}>
                         <SidebarOptions Icon={BiUser} text={'Profile'} />
-                    </Link>
-                    <Link href={`/more`}>
+                    </Link></li>
+                    <li>   <Link href={`/more`}>
                         <SidebarOptions Icon={CiCircleMore} text={'More'} />
-                    </Link>
-                </div>
+                    </Link></li>
+                </ul>
                 <button className='twitter-bg-color w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px]'>Tweet</button>
                 <UserProfile />
             </div>

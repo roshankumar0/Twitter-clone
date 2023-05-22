@@ -12,7 +12,7 @@ const Post = (props) => {
     const { username, post, time, message, share, likes, views, taguser, profile } = props
     return (
         <div className='  border-t-[1px]'>
-            <div className='flex flex-col hover:bg-[gray] ease-in duration-300 px-[16px]'>
+            <div className='flex flex-col hover:bg-slate-100 ease-in duration-300 px-[16px]'>
                 <div className='flex pt-[12px]'>
                     <div>
                         <img className=' mr-[12px]  h-[50px] w-[50px] rounded-full cursor-pointer' src={`${profile}`} alt="logo profile" />

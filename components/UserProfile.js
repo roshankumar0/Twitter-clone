@@ -29,7 +29,7 @@ const UserProfile = () => {
       <div className="absolute bottom-16 right-0 left-0">
         {login && <Login />}
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between p-[12px]">
         <div className="flex">
           <img
             src="https://pbs.twimg.com/media/Fwn_-4fWcAE018c?format=png&name=small"

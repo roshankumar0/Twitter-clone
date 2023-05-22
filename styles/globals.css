@@ -77,10 +77,12 @@ body {
   cursor: pointer;
   padding: 16px 0;
 }
-.tweetList li .active::after{
+.tweetList li .active::after {
   background-color: red;
-  content: 'fha';
-  height: 2px ;
+  content: "fha";
+  height: 2px;
   width: 50px;
 }
-
+.sidebarIcon {
+  padding: 12px;
+}

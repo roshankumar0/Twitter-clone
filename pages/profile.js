@@ -2,10 +2,11 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { BsCalendar2Week } from 'react-icons/bs';
-import Tweet from './Tweets';
-import Like from './Likes';
-import Replie from './replies';
-import Medias from './media';
+import Tweet from '../components/tweets';
+import Like from '../components/Likes';
+import Replie from '../components/replies';
+import Medias from '../components/media';
+import Search from '../components/search';
 const Tweets = () => {
   return <Tweet />
 };
@@ -24,10 +25,10 @@ const Likes = () => {
 
 const Profile = () => {
   const [userTweet] = useState([
-    { userInfo: "Tweets", url: "tweets", component: Tweets },
-    { userInfo: "Replies", url: "replies", component: Replies },
-    { userInfo: "Media", url: "media", component: Media },
-    { userInfo: "Likes", url: "Likes", component: Likes },
+    { userInfo: "Tweets", component: Tweets },
+    { userInfo: "Replies", component: Replies },
+    { userInfo: "Media", component: Media },
+    { userInfo: "Likes", component: Likes },
   ]);
   const [active, setActive] = useState(0);
 
@@ -54,30 +55,32 @@ const Profile = () => {
             <div className='userProfile__header h-[400px] relative '>
               <img src="https://tse4.mm.bing.net/th?id=OIP.2ipyciZc3yjfiBePI2p0QAHaF6&pid=Api&P=0&h=180" alt="" className='rounded-full w-[133px] h-[133px] absolute bottom-0 left-0 translate-x-1/2 translate-y-1/2' />
             </div>
-            <div className='flex justify-end'>
-              <div className='relative right-0 border w-[25%] rounded-full mt-[12px] text-center font-bold cursor-pointer hover:bg-gray-200 p-[12px]'>Edit profile</div>
-            </div>
-            <div className='flex flex-col z-20'>
-              <div>ROSHAN</div>
-              <div>@ROSHNN01</div>
-            </div>
-            <div className='flex items-center'>
-              <BsCalendar2Week />
-              <span> Joined April 2022</span>
-            </div>
-            <div className='flex'>
-              <span> 1 Following</span>
-              <span> 0 Followers</span>
+            <div className='mb-[16px] pt-[12px] px-[16px]'>
+              <div className='flex justify-end'>
+                <div className='relative right-0 border w-[25%] rounded-full mt-[12px] text-center font-bold cursor-pointer hover:bg-gray-200 p-[12px]'>Edit profile</div>
+              </div>
+              <div className='flex flex-col z-20'>
+                <div>ROSHAN</div>
+                <div>@ROSHNN01</div>
+              </div>
+              <div className='flex items-center'>
+                <BsCalendar2Week />
+                <span> Joined April 2022</span>
+              </div>
+              <div className='flex'>
+                <span> 1 Following</span>
+                <span> 0 Followers</span>
+              </div>
             </div>
             <ul className='flex justify-around tweetList'>
               {userTweet.map((users, index) => (
                 <li
                   key={index}
-                  className={`hover:bg-red-700 flex-1 text-center relative text-sm font-medium text-slate-700 ${active === index ? '' : ''
+                  className={`hover:bg-gray-200 flex-1 text-center relative text-sm font-medium text-slate-700 ${active === index ? '' : ''
                     }`}
                   onClick={() => handleItemClick(index)}
                 >
-                  <Link href={`/${users.url}`}>{users.userInfo}</Link>
+                  {users.userInfo}
                   {active === index && <span className="absolute bottom-0 left-0 w-[100%] h-[4px] bg-[#1D9BF0]"></span>}
                 </li>
               ))}
@@ -87,7 +90,9 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div>left</div>
+        <div className='flex-[0.4]'>
+          <Search />
+        </div>
       </div>
     </div>
   );
