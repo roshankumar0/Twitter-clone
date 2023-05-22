@@ -3,9 +3,7 @@ import { VscVerifiedFilled } from 'react-icons/vsc';
 import { IoIosMore } from 'react-icons/io';
 import { AiOutlineMessage, AiOutlineHeart } from 'react-icons/ai';
 import { CiShare1 } from 'react-icons/ci';
-import { SiSimpleanalytics } from 'react-icons/si';
 import { BsArrowBarUp } from 'react-icons/bs';
-import PostDetails from './PostDetails';
 
 // Rest of your code
 

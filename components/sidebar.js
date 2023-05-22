@@ -5,25 +5,49 @@ import { IoMdNotificationsOutline } from 'react-icons/io';
 import { CiViewList, CiCircleMore } from 'react-icons/ci';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
 import SidebarOptions from './sidebarOptions';
+import Link from 'next/link';
+import UserProfile from './UserProfile';
+
 
 const Sidebar = () => {
     return (
         <>
-            <div className=' w-[275px] flex flex-col justify-start border-r-2 overflow-y-scroll' >
-                <div className='px-[12px]'> <BsTwitter className='h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]' />
-                </div>
+            <div className=' w-[275px] flex flex-col justify-start border-r-2 overflow-y-scroll h-[100vh]' >
+                <Link href={`/home`}>
+                    <div className='px-[12px]'> <BsTwitter className='h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]' />
+                    </div>
+                </Link>
                 <div className='flex flex-col'>
-                    <SidebarOptions active Icon={BiHomeCircle} text={'Home'} />
-                    <SidebarOptions Icon={BiHash} text={'Explore'} />
-                    <SidebarOptions Icon={IoMdNotificationsOutline} text={'Notifications'} />
-                    <SidebarOptions Icon={BiMessageRounded} text={'Messages'} />
-                    <SidebarOptions Icon={CiViewList} text={'Lists'} />
-                    <SidebarOptions Icon={BiBookmark} text={'Bookmarks'} />
-                    <SidebarOptions Icon={TiSocialTwitterCircular} text={'Twitter Blue'} />
-                    <SidebarOptions Icon={BiUser} text={'Profile'} />
-                    <SidebarOptions Icon={CiCircleMore} text={'More'} />
+                    <Link href='/'>
+                        <SidebarOptions active Icon={BiHomeCircle} text={'Home'} />
+                    </Link>
+                    <Link href='explore'>
+                        <SidebarOptions Icon={BiHash} text={'Explore'} />
+                    </Link>
+                    <Link href={`/notification`}>
+                        <SidebarOptions Icon={IoMdNotificationsOutline} text={'Notifications'} />
+                    </Link>
+                    <Link href={`/message`}>
+                        <SidebarOptions Icon={BiMessageRounded} text={'Messages'} />
+                    </Link>
+                    <Link href={`/lists`}>
+                        <SidebarOptions Icon={CiViewList} text={'Lists'} />
+                    </Link>
+                    <Link href={`/bookmarks`}>
+                        <SidebarOptions Icon={BiBookmark} text={'Bookmarks'} />
+                    </Link>
+                    <Link href={`/twitterblue`}>
+                        <SidebarOptions Icon={TiSocialTwitterCircular} text={'Twitter Blue'} />
+                    </Link>
+                    <Link href={`/profile`}>
+                        <SidebarOptions Icon={BiUser} text={'Profile'} />
+                    </Link>
+                    <Link href={`/more`}>
+                        <SidebarOptions Icon={CiCircleMore} text={'More'} />
+                    </Link>
                 </div>
-                <button className='twitter-bg-color w-[90%] my-[16px] text-white rounded-full h-[56px]'>Tweet</button>
+                <button className='twitter-bg-color w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px]'>Tweet</button>
+                <UserProfile />
             </div>
 
         </>

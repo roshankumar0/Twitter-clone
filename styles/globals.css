@@ -26,8 +26,8 @@
   background-color: rgba(128, 128, 128, 0.276);
   transition: color 0.4s ease;
 }
-.search_bg{
-background-color: rgba(128, 128, 128, 0.276);
+.search_bg {
+  background-color: rgba(128, 128, 128, 0.276);
 }
 .scrollbar::-webkit-scrollbar {
   width: 6px;
@@ -50,17 +50,37 @@ background-color: rgba(128, 128, 128, 0.276);
   overflow-y: scroll;
 }
 .scrollable-container::-webkit-scrollbar {
-  width: 0em; 
+  width: 0em;
 }
 
 .scrollable-container::-webkit-scrollbar-track {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
 }
 
 .scrollable-container::-webkit-scrollbar-thumb {
-  background-color: #888; 
+  background-color: #888;
 }
-body{
+body {
   overflow: hidden;
 }
 /* #1D9BF0 */
+/* #__next{
+  display: flex;
+} */
+
+.userProfile__header {
+  background-color: rgb(207, 217, 222);
+}
+.tweetList li {
+  color: #536471;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 16px 0;
+}
+.tweetList li .active::after{
+  background-color: red;
+  content: 'fha';
+  height: 2px ;
+  width: 50px;
+}
+
