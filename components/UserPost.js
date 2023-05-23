@@ -23,7 +23,7 @@ const UserPost = () => {
           <li className='cursor-pointer hover:bg-gray-100 transition ease-in-out delay-150  hover:-translate-y-8 hover:scale-110  duration-300 p-[12px] rounded-full text-[#1D9BF0]' key={index}>{post.Icon}</li>
         ))}
       </ul>
-      <div className='flex-1 text-end '><span className='bg-[#1D9BF0] px-[16px] py-[8px] cursor-pointer rounded-full ml-[12px] opacity-[0.5] text-[15px] text-white'>Tweets</span></div>
+      <div className='flex-1 text-end '><span className='bg-[#1D9BF0] px-[16px] py-[8px] cursor-pointer rounded-full ml-[12px] opacity-[0.5] text-[15px] font-bold text-white'>Tweets</span></div>
     </div>
   );
 };

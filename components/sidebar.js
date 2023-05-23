@@ -11,12 +11,14 @@ import UserProfile from './UserProfile';
 
 const Sidebar = () => {
     return (
-        <>
-            <div className=' w-[275px] flex flex-col justify-start border-r-2 overflow-y-scroll h-[100vh]' >
-                <Link href={`/home`}>
+        <div className='hidden lg:block'>
+            <div className=' w-[275px] flex flex-col justify-start border-r-2 overflow-y-scroll h-[100vh] ' >
+               <div className='block'>
+               <Link href={`/home`}>
                     <div className='px-[12px]'> <BsTwitter className='h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]' />
                     </div>
                 </Link>
+               </div>
                 <ul className='flex flex-col sidebarIcon'>
                     <li> <Link href='/'>
                         <SidebarOptions active Icon={BiHomeCircle} text={'Home'} />
@@ -46,11 +48,11 @@ const Sidebar = () => {
                         <SidebarOptions Icon={CiCircleMore} text={'More'} />
                     </Link></li>
                 </ul>
-                <button className='twitter-bg-color w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px]'>Tweet</button>
+                <button className='twitter-bg-color w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px] min-h-[52px]'>Tweet</button>
                 <UserProfile />
             </div>
 
-        </>
+        </div>
     )
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import { BsSearch } from 'react-icons/bs'
-import Trending from './Trending'
 import Search from './search'
 const Widgets = () => {
   return (

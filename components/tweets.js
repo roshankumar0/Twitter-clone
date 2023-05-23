@@ -13,7 +13,7 @@ const Tweets = () => {
               <span>@Hostinger</span>
             </div>
           </div>
-          <div className='bg-[#0F1419] text-white rounded-full px-[16px]'><span className='text-[14px] flex'>Follow</span></div>
+          <div className='bg-[#0F1419] text-white rounded-full px-[16px]'><span className='text-[14px] min-h-[32px] items-center cursor-pointer flex'>Follow</span></div>
         </div>
         <div>You have a mission. We have a rocket. Let’s launch your website online 🚀 </div>
       </div>
