@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { BsTwitter } from 'react-icons/bs';
 
-const Header = () => {
+const Header = ({ userData }) => {
+  console.log(userData)
   const [user] = useState([
     { userPersonal: "For you" },
     { userPersonal: "Following" },
   ]);
-
+  useEffect(() => {
+    const fetchdata = async () => {
+      const data=await axios.get("http://localhost:3000/api/users")
+      console.log(data.data)
+    }
+    fetchdata()
+  }, [])
   return (
-    <div className='sticky top-0 bg-white px-[16px] flex flex-col'>
+    <div className='sticky top-0 bg-white px-[16px] flex flex-col z-10'>
       <div className='md:hidden flex items-center justify-between'>
-        <div>logo</div>
+        <div>ROSHAN</div>
         <div><BsTwitter /></div>
         <div></div>
       </div>
@@ -34,5 +42,26 @@ const Header = () => {
     </div>
   );
 };
+
+
+export async function getStaticProps() {
+  try {
+    const response = await axios.get('http://localhost:3000/api/users');
+    const userData = response.data;
+    return {
+      props: {
+        userData,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        userData: null,
+      },
+    };
+  }
+}
+
 
 export default Header;

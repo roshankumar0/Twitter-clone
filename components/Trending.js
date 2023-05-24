@@ -3,7 +3,7 @@ import LiveTrending from './LiveTrending'
 
 const Trending = () => {
   return (
-    <div className='sticky top-[0px] z-[-110]'>
+    <div className=''>
       <h1>What’s happening</h1>
       <div className=' rounded-lg'>
         <LiveTrending />

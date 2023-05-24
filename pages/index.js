@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../components/sidebar'
 import Feeds from '../components/feeds'
 import Widgets from '../components/widgets'
-import MobileMenu from '../components/MobileMenu'
+
 
 function index() {
   return (
@@ -10,9 +10,8 @@ function index() {
       <div className='flex flex-1 overflow-y-scroll md:w-[990px] justify-evenly'>
         <div>
           <Feeds />
-          {/* <MobileMenu /> */}
         </div>
-        <div className='hidden md:block'>
+        <div className='hidden md:block w-[350px]'>
           <Widgets />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { BsCalendar2Week } from 'react-icons/bs';
 import Tweet from '../components/tweets';
@@ -7,6 +7,7 @@ import Like from '../components/Likes';
 import Replie from '../components/replies';
 import Medias from '../components/media';
 import Search from '../components/search';
+import Editprofile from '../components/Editprofile';
 const Tweets = () => {
   return <Tweet />
 };
@@ -30,6 +31,7 @@ const Profile = () => {
     { userInfo: "Media", component: Media },
     { userInfo: "Likes", component: Likes },
   ]);
+  const [showprofile, setShowprofile] = useState(false)
   const [active, setActive] = useState(0);
 
   const handleItemClick = (index) => {
@@ -37,11 +39,17 @@ const Profile = () => {
   };
 
   const ActiveComponent = userTweet[active].component;
-
+  useEffect(() => {
+    if (!showprofile) {
+      document.body.style.background = 'gray';
+    } else {
+      document.body.style.background = ''; // Reset the background color if cross is false
+    }
+  }, [showprofile]);
   return (
-    <div className='block overflow-y-scroll h-[100vh]'>
-      <div className='flex'>
-        <div className='flex-[0.6] border-r-[1px]'>
+    <div className='block overflow-y-scroll h-[100vh] '>
+      <div className='md:flex flex-1 '>
+        <div className='md:flex-[0.6] flex-1 border-r-[1px]'>
           <div className='flex sticky top-0 z-40 bg-white'>
             <div>
               <AiOutlineArrowLeft />
@@ -51,13 +59,14 @@ const Profile = () => {
               <span>0 Tweets</span>
             </div>
           </div>
-          <div className='flex flex-col'>
+          <div className='flex flex-col relative'>
             <div className='userProfile__header h-[400px] relative '>
               <img src="https://tse4.mm.bing.net/th?id=OIP.2ipyciZc3yjfiBePI2p0QAHaF6&pid=Api&P=0&h=180" alt="" className='rounded-full w-[133px] h-[133px] absolute bottom-0 left-0 translate-x-1/2 translate-y-1/2' />
             </div>
             <div className='mb-[16px] pt-[12px] px-[16px]'>
               <div className='flex justify-end'>
-                <div className='relative right-0 border w-[25%] rounded-full mt-[12px] text-center font-bold cursor-pointer hover:bg-gray-200 p-[12px]'>Edit profile</div>
+                <div className='relative right-0 border w-[25%] rounded-full mt-[12px] text-center font-bold cursor-pointer hover:bg-gray-200 p-[12px]' onClick={() => setShowprofile(!showprofile)}
+                >Edit profile  </div>
               </div>
               <div className='flex flex-col z-20'>
                 <div>ROSHAN</div>
@@ -88,12 +97,14 @@ const Profile = () => {
             <div className="mt-4">
               <ActiveComponent />
             </div>
+            {showprofile && <Editprofile />}
           </div>
         </div>
         <div className='flex-[0.4]'>
           <Search />
         </div>
       </div>
+
     </div>
   );
 };
