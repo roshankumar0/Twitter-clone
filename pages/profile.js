@@ -41,9 +41,9 @@ const Profile = () => {
   const ActiveComponent = userTweet[active].component;
   useEffect(() => {
     if (!showprofile) {
-      document.body.style.background = 'gray';
+   
     } else {
-      document.body.style.background = ''; // Reset the background color if cross is false
+     
     }
   }, [showprofile]);
   return (
@@ -52,7 +52,9 @@ const Profile = () => {
         <div className='md:flex-[0.6] flex-1 border-r-[1px]'>
           <div className='flex sticky top-0 z-40 bg-white'>
             <div>
-              <AiOutlineArrowLeft />
+              <Link href={`/`}>
+                <AiOutlineArrowLeft />
+              </Link>
             </div>
             <div className='flex flex-col'>
               <span>ROSHAN</span>

@@ -50,3 +50,56 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
+
+ {/* <ul className='flex flex-col sidebarIcon'>
+                    <li> <Link href='/'>
+                        <SidebarOptions active Icon={BiHomeCircle} text={'Home'} />
+                    </Link></li>
+                    <li> <Link href='explore'>
+                        <SidebarOptions Icon={BiHash} text={'Explore'} />
+                    </Link></li>
+                    <li> <Link href={`/notification`}>
+                        <SidebarOptions Icon={IoMdNotificationsOutline} text={'Notifications'} />
+                    </Link></li>
+                    <li>  <Link href={`/message`}>
+                        <SidebarOptions Icon={BiMessageRounded} text={'Messages'} />
+                    </Link></li>
+                    <li> <Link href={`/lists`}>
+                        <SidebarOptions Icon={CiViewList} text={'Lists'} />
+                    </Link></li>
+                    <li>  <Link href={`/bookmarks`}>
+                        <SidebarOptions Icon={BiBookmark} text={'Bookmarks'} />
+                    </Link></li>
+                    <li> <Link href={`/twitterblue`}>
+                        <SidebarOptions Icon={TiSocialTwitterCircular} text={'Twitter Blue'} />
+                    </Link></li>
+                    <li> <Link href={`/profile`}>
+                        <SidebarOptions Icon={BiUser} text={'Profile'} />
+                    </Link></li>
+                    <li onClick={handleMore}>
+                        <SidebarOptions Icon={CiCircleMore} text={'More'} />
+                    </li>
+                </ul> */}
+
+
+
+
+
+              //   const handleMore = () => {
+              //     setMore(!more);
+              // };
+          
+              // useEffect(() => {
+              //     const handleClickOutside = (event) => {
+              //         if (userProfileRef.current && !userProfileRef.current.contains(event.target)) {
+              //             setMore(false);
+              //         }
+              //     };
+          
+              //     document.addEventListener('click', handleClickOutside);
+          
+              //     return () => {
+              //         document.removeEventListener('click', handleClickOutside);
+              //     };
+              // }, []);
