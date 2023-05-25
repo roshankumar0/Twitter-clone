@@ -60,7 +60,7 @@ const Sidebar = () => {
       <div className="hidden lg:block" ref={sidebarRef}>
         <div className="w-[275px] flex flex-col justify-start border-r-2 overflow-y-scroll h-[100vh]">
           <div className="block">
-            <Link href="/home">
+            <Link href="/">
               <div className="px-[12px]">
                 <BsTwitter className="h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]" />
               </div>

@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }) {
   return <>
-   <div className='flex justify-between max-w-[1300px] m-auto '>
+   <div className='flex justify-between ml-[100px] m-auto min-h-[1458px] overflow-auto'>
         <Sidebar />
         <div className='flex-1 '>
           <Component {...pageProps} />
