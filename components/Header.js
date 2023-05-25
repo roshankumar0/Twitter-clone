@@ -31,7 +31,7 @@ const Header = () => {
             key={index}
             className={`hover:bg-slate-100 flex-1 justify-center flex `}
           >
-            <p className={`font-bold cursor-pointer py-4 ${active === index && "border-b-[3px] border-blue-400"}`}>{users.userPersonal}</p>
+            <p className={`font-bold cursor-pointer py-4 ${active === index && "border-b-[4px] rounded-sm border-blue-400"}`}>{users.userPersonal}</p>
           </div>
         ))}
       </div>
