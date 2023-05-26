@@ -4,7 +4,7 @@ const nameSlice = createSlice({
     name: 'name',
     initialState: {
         name: 'Roshan Kumar', username: 'ROSHNN01', userProfile: "https://tse2.mm.bing.net/th?id=OIP.IxheWOxIH3MVVcUKPDJwtgHaD4&pid=Api&P=0&h=180",
-        email: ""
+        email: [],
     },
     reducers: {
         updateUserInfo: (state, action) => {
@@ -12,8 +12,9 @@ const nameSlice = createSlice({
             state.username = action.payload.username;
         },
         updateEmail: (state, action) => {
-            state.email = action.payload.email
+            state.email = [...state.email, ...action.payload];
         }
+
     },
 });
 

@@ -7,7 +7,7 @@ import { BsArrowBarUp } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateEmail } from '../store/cartSlice';
 
-// Rest of your code
+
 
 
 const Post = (props) => {
@@ -17,8 +17,9 @@ const Post = (props) => {
     const { email } = useSelector((state) => state.names)
     const handlesubmit = (e) => {
         e.preventDefault();
-        dispatch(updateEmail({email:inputs}))
-        setInput("")
+        const emails = inputs.split(',');
+        dispatch(updateEmail(emails));
+        setInput('');
     };
 
     return (
@@ -83,6 +84,12 @@ const Post = (props) => {
                 <input type='text' placeholder='search here something' className='bg-red-400' value={inputs} onChange={(e) => setInput(e.target.value)} />
                 <button type='submit'>submit</button>
             </form>
+            <ul>
+                {email.map((emailList, index) => (
+                    <li key={index}>{emailList}</li>
+                ))}
+            </ul>
+
             Email:{email}
         </div>
 
