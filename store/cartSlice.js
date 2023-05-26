@@ -2,13 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const nameSlice = createSlice({
     name: 'name',
-    initialState: { name: 'Roshan kumar', username: "ROSHNN01" },
+    initialState: { name: 'Roshan Kumar', username: 'ROSHNN01', userProfile: "https://tse2.mm.bing.net/th?id=OIP.IxheWOxIH3MVVcUKPDJwtgHaD4&pid=Api&P=0&h=180" },
     reducers: {
-        updateUsername: (state, action) => {
-            state.username = action.payload
+        updateUserInfo: (state, action) => {
+            state.name = action.payload.name;
+            state.username = action.payload.username;
         },
     },
 });
 
-export const { updateUsername } = nameSlice.actions;
+export const { updateUserInfo } = nameSlice.actions;
 export default nameSlice.reducer;

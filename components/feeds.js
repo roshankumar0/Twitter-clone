@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import TweetChat from './TweetChat'
 import Post from './Post'
 

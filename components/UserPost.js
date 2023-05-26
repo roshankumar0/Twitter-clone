@@ -44,18 +44,17 @@ const UserPost = ({ twitpost }) => {
     <div className='flex items-center py-[12px] '>
       <ul className='flex flex-1 justify-between'>
         {userPosts.map((post, index) => (
-          <div key={index} className='flex flex-col relative'>
+          <div key={index} className='flex flex-col relative' onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}>
             <li
               className='flex relative flex-col cursor-pointer hover:bg-gray-100 transition ease-in-out delay-150 p-[12px] rounded-full text-[#1D9BF0]'
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
             >
               {post.Icon}
 
             </li>
             <div>
               {hoveredIndex === index && showIcon && (
-                <span className='absolute text-white ml-[-10px] top-11 bg-slate-500 rounded-md text-[14px] p-[4px]'>{post.showIconName}</span>
+                <span className='absolute text-white top-12 bg-slate-500 rounded-md text-[14px] p-[4px]'>{post.showIconName}</span>
               )}
             </div>
           </div>

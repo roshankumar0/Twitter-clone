@@ -14,7 +14,11 @@
     items-center p-4 transition-all lg:px-10 lg:py-6;
   }
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .twitter-color {
   color: rgb(29, 155, 240);
 }

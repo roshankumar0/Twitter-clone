@@ -8,6 +8,7 @@ import Replie from '../components/replies';
 import Medias from '../components/media';
 import Search from '../components/search';
 import Editprofile from '../components/Editprofile';
+import { useSelector } from 'react-redux';
 const Tweets = () => {
   return <Tweet />
 };
@@ -41,24 +42,27 @@ const Profile = () => {
   const ActiveComponent = userTweet[active].component;
   useEffect(() => {
     if (!showprofile) {
-   
+
     } else {
-     
+
     }
   }, [showprofile]);
+  const { name, username } = useSelector((state) => state.names)
   return (
     <div className='block overflow-y-scroll h-[100vh] '>
       <div className='md:flex flex-1 '>
         <div className='md:flex-[0.6] flex-1 border-r-[1px]'>
-          <div className='flex sticky top-0 z-40 bg-white'>
-            <div>
-              <Link href={`/`}>
-                <AiOutlineArrowLeft />
-              </Link>
-            </div>
-            <div className='flex flex-col'>
-              <span>ROSHAN</span>
-              <span>0 Tweets</span>
+          <div className='bg-white  top-0 z-40 sticky'>
+            <div className='flex  items-center max-w-[600px] h-[53px] px-[16px]'>
+              <div className='min-w-[56px] font-bold'>
+                <Link href={`/`}>
+                  <AiOutlineArrowLeft />
+                </Link>
+              </div>
+              <div className='flex flex-col'>
+                <span className='cursor-pointer text-[#0F1419] font-bold text-[20px] lineh leading-[24px]'>{name}</span>
+                <span className='text-[13px] text-[#536471]'>0 Tweets</span>
+              </div>
             </div>
           </div>
           <div className='flex flex-col relative'>
@@ -71,8 +75,8 @@ const Profile = () => {
                 >Edit profile  </div>
               </div>
               <div className='flex flex-col z-20'>
-                <div>ROSHAN</div>
-                <div>@ROSHNN01</div>
+                <div>{name}</div>
+                <div>@{username}</div>
               </div>
               <div className='flex items-center'>
                 <BsCalendar2Week />
@@ -85,15 +89,16 @@ const Profile = () => {
             </div>
             <ul className='flex justify-around tweetList'>
               {userTweet.map((users, index) => (
-                <li
-                  key={index}
-                  className={`hover:bg-gray-200 flex-1 text-center relative text-sm font-medium text-slate-700 ${active === index ? '' : ''
-                    }`}
-                  onClick={() => handleItemClick(index)}
-                >
-                  {users.userInfo}
-                  {active === index && <span className="absolute bottom-0 left-0 w-[100%] h-[4px] bg-[#1D9BF0]"></span>}
-                </li>
+                <div className='hover:bg-gray-200 flex-1 relative text-center'>
+                  <li
+                    key={index}
+                    className={` flex flex-col  text-sm font-medium text-slate-700}`}
+                    onClick={() => handleItemClick(index)}
+                  >
+                    {users.userInfo}
+                    {active === index && <span className="absolute bottom-0 left-0 w-[100%] h-[4px] bg-[#1D9BF0]"></span>}
+                  </li>
+                </div>
               ))}
             </ul>
             <div className="mt-4">
@@ -106,7 +111,6 @@ const Profile = () => {
           <Search />
         </div>
       </div>
-
     </div>
   );
 };

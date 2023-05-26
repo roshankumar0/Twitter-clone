@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { RxBorderDotted } from 'react-icons/rx';
 import Login from './Login';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserInfo } from '../store/cartSlice';
 
 const UserProfile = () => {
   const [login, setLogin] = useState(false);
   const userProfileRef = useRef(null);
-  const {name,username} = useSelector((state) => state.names);
+  const { name, username,userProfile } = useSelector((state) => state.names);
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
     setLogin(!login);
@@ -26,15 +28,25 @@ const UserProfile = () => {
     };
   }, []);
 
+  const handleClick = () => {
+    if (name === 'Shivam' && username === 'kamal si') {
+      // Revert to the initial values
+      dispatch(updateUserInfo({ name: 'Roshan Kumar', username: 'ROSHNN01' }));
+    } else {
+      // Update to the new values
+      dispatch(updateUserInfo({ name: 'Shivam', username: 'kamal singh' }));
+    }
+  };
+
   return (
     <div className="flex flex-col relative" ref={userProfileRef}>
       <div className="absolute bottom-16 right-0 left-0">
         {login && <Login />}
       </div>
-      <div className="flex items-center justify-between p-[12px]">
+      <div className="flex items-center justify-between p-[12px]" onClick={handleClick}>
         <div className="flex">
           <img
-            src="https://pbs.twimg.com/media/Fwn_-4fWcAE018c?format=png&name=small"
+            src={`${userProfile}`}
             alt=""
             className="h-[50px] w-[50px] rounded-full"
           />
