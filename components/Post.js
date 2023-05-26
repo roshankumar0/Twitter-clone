@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { VscVerifiedFilled } from 'react-icons/vsc';
 import { IoIosMore } from 'react-icons/io';
 import { AiOutlineMessage, AiOutlineHeart } from 'react-icons/ai';
 import { CiShare1 } from 'react-icons/ci';
 import { BsArrowBarUp } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateEmail } from '../store/cartSlice';
 
 // Rest of your code
 
 
 const Post = (props) => {
     const { username, post, time, message, share, likes, views, taguser, profile } = props
+    const [inputs, setInput] = useState('')
+    const dispatch = useDispatch()
+    const { email } = useSelector((state) => state.names)
+    const handlesubmit = (e) => {
+        e.preventDefault();
+        dispatch(updateEmail({email:inputs}))
+        setInput("")
+    };
+
     return (
         <div className='  border-t-[1px]'>
             <div className='flex flex-col hover:bg-slate-100 ease-in duration-300 px-[16px]'>
@@ -68,6 +79,11 @@ const Post = (props) => {
                     </div>
                 </div>
             </div>
+            <form onSubmit={handlesubmit}>
+                <input type='text' placeholder='search here something' className='bg-red-400' value={inputs} onChange={(e) => setInput(e.target.value)} />
+                <button type='submit'>submit</button>
+            </form>
+            Email:{email}
         </div>
 
     )
