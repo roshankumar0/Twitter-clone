@@ -50,12 +50,12 @@ const UserProfile = () => {
             alt=""
             className="h-[50px] w-[50px] rounded-full"
           />
-          <span className="flex flex-col">
+          <span className=" flex-col hidden lg:flex">
             <div>{name}</div>
             <div>{username}</div>
           </span>
         </div>
-        <div onClick={handleLogin} className="cursor-pointer">
+        <div onClick={handleLogin} className="cursor-pointer hidden lg:block">
           <RxBorderDotted />
         </div>
       </div>

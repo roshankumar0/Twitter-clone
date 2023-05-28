@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import UserPost from './UserPost';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
-import profile from '../pages/profile';
 const TweetChat = () => {
   const [tweetText, setTweetText] = useState("");
   const [tweets, setTweets] = useState([]);
@@ -14,7 +13,7 @@ const TweetChat = () => {
 
   const { userProfile } = useSelector((state) => state.names);
   return (
-    <div className='px-[16px] flex'>
+    <div className='px-[16px] md:flex hidden '>
       <Link href={`/profile`}>
       <img className='mr-[12px] h-[50px] w-[50px] rounded-full cursor-pointer' src={`${userProfile}`} alt="" />
       </Link>

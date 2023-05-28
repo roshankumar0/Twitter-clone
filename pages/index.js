@@ -22,13 +22,13 @@ function Index() {
   }, []);
 
   return (
-    <div className={`max-w-[1300px] m-auto flex md:h-[100vh] h-[153vh] ${scrolls ? "bg-red-500" : ""}`}>
-      <div className="flex flex-1 overflow-y-scroll md:w-[990px]">
+    <div className={`shrink-[4] max-w-[1300px] m-auto flex md:h-[100vh]  h-[153vh] ${scrolls ? "bg-red-500" : ""}`}>
+      <div className="  flex-1  overflow-y-scroll justify-evenly lg:justify-start flex">
         <div>
           <Header />
           <Feeds />
         </div>
-        <div className="hidden md:block w-[350px]">
+        <div className="hidden lg:block">
           <Widgets />
         </div>
       </div>
