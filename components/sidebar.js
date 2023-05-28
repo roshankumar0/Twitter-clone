@@ -60,7 +60,7 @@ const Sidebar = () => {
       </Head>
       <div className="hidden md:block shrink-[2]" ref={sidebarRef}>
         <div className=' w-[88px] lg:w-[100%]  flex justify-end px-[8px]'>
-          <div className=" flex flex-col justify-start items-center lg:items-start overflow-y-scroll h-[100vh]">
+          <div className=" flex flex-col justify-start items-center lg:items-start  h-[100vh]">
             <div className="block">
               <Link href="/">
                 <div className="px-[12px]">
