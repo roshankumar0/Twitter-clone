@@ -21,7 +21,7 @@ const Header = () => {
   const ActiveComponent = user[active].Component;
 
   return (
-    <div className='fixed w-[370px] top-0 bg-white md:w-[600px] px-[16px] flex flex-col z-10 border-b-1'>
+    <div className='fixed w-[425px] top-0 bg-white md:w-[600px] px-[16px] flex flex-col z-10 border-b-1'>
       <div className='md:hidden items-center justify-between block'>
         <div className='hidden md:block'>ROSHAN</div>
         <div className='flex items-center md:hidden min-h-[53px]'>
