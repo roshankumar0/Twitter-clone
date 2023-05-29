@@ -13,7 +13,7 @@ const TweetChat = () => {
 
   const { userProfile } = useSelector((state) => state.names);
   return (
-    <div className='px-[16px] md:flex hidden '>
+    <div className='px-[16px] md:flex hidden mt-[140px]'>
       <Link href={`/profile`}>
       <img className='mr-[12px] h-[50px] w-[50px] rounded-full cursor-pointer' src={`${userProfile}`} alt="" />
       </Link>

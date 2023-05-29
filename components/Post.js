@@ -26,7 +26,7 @@ const Post = (props) => {
 
     return (
         <div className='  border-t-[1px]'>
-            <div className='flex flex-col hover:bg-slate-100 ease-in duration-300 px-[16px]'>
+            <div className='flex flex-col hover:bg-[#EFF3F4]  ease-in duration-300 px-[16px]'>
                 <div className='flex pt-[12px]  max-w-[425px]  md:max-w-[100%]'>
                     <div className='w-[48px] mr-[12px]'>
                         <img className=' mr-[12px]  h-[48px] w-[48px] rounded-full cursor-pointer ' src={`${userProfile}`} alt="logo profile" />

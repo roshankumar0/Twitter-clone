@@ -51,24 +51,25 @@ const Sidebar = () => {
   const activeUrl = sidebar[activeOption].url;
   const pageTitle = activeUrl === '' ? 'More' : activeUrl.substring(1).charAt(0).toUpperCase() + activeUrl.substring(2);
 
-  const title = sidebar[activeOption].url === '/' ? 'Home' : pageTitle;
+  const dyamictitle = sidebar[activeOption].url === '/' ? 'Home' : pageTitle;
 
   return (
     <>
       <Head>
-        <title>{title} / Twitter</title>
+        <title>{`${dyamictitle} / Twitter`}</title>
       </Head>
-      <div className="hidden md:block shrink-[2]" ref={sidebarRef}>
-        <div className=' w-[88px] lg:w-[100%]  flex justify-end px-[8px]'>
-          <div className=" flex flex-col justify-start items-center lg:items-start  h-[100vh]">
-            <div className="block">
-              <Link href="/">
-                <div className="px-[12px]">
-                  <BsTwitter className="h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]" />
-                </div>
-              </Link>
-            </div>
+      <div className="hidden md:block shrink-[2] border-r-[1px]" ref={sidebarRef}>
+        <div className=' w-[88px] lg:w-[100%]  flex justify-end px-[8px] flex-col'>
+          <div className=" flex flex-col justify-start items-center lg:items-start  ">
+
             <ul>
+              <div className="block">
+                <Link href="/">
+                  <div className="px-[12px]">
+                    <BsTwitter className="h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]" />
+                  </div>
+                </Link>
+              </div>
               {sidebar.map((sidenav, index) => (
                 <Link href={sidenav.url} key={index}>
                   <li
@@ -93,23 +94,24 @@ const Sidebar = () => {
                   </li>
                 </Link>
               ))}
+              <button onClick={handleMore}>
+                {sidebar[activeOption].url === '' && <More />}
+                {more && <More />}
+              </button>
+              <button
+                className="twitter-bg-color hidden lg:block w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px] min-h-[52px]"
+                onClick={handleMore}
+              >
+                Tweet
+              </button>
+              <div className=' twitter-bg-color min-w-[52px] text-[17px] font-bold my-[16px] text-white flex items-center justify-center lg:hidden min-h-[52px] h-[52px] w-[52px] rounded-full'>
+                +
+                <BiLeaf />
+              </div>
             </ul>
-            <button onClick={handleMore}>
-              {sidebar[activeOption].url === '' && <More />}
-              {more && <More />}
-            </button>
-            <button
-              className="twitter-bg-color hidden lg:block w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px] min-h-[52px]"
-              onClick={handleMore}
-            >
-              Tweet
-            </button>
-            <div className=' twitter-bg-color min-w-[52px] text-[17px] font-bold my-[16px] text-white flex items-center justify-center lg:hidden min-h-[52px] h-[52px] w-[52px] rounded-full'>
-              + 
-              <BiLeaf />
-            </div>
-            <UserProfile />
+
           </div>
+          <UserProfile />
         </div>
       </div>
     </>

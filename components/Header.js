@@ -21,7 +21,7 @@ const Header = () => {
   const ActiveComponent = user[active].Component;
 
   return (
-    <div className='sticky top-0 bg-white max-w-[600px] px-[16px] flex flex-col z-10 border-b-1'>
+    <div className='fixed w-[600px] top-0 bg-white max-w-[600px] px-[16px] flex flex-col z-10 border-b-1'>
       <div className='md:hidden items-center justify-between block'>
         <div className='hidden md:block'>ROSHAN</div>
         <div className='flex items-center md:hidden min-h-[53px]'>
@@ -42,7 +42,7 @@ const Header = () => {
         </div>
         <div></div>
       </div>
-      <h2 className='font-bold hidden md:block text-black text-[20px] leading-[24px]'><span>Home</span></h2>
+      <h2 className='font-bold hidden md:block text-black text-[20px] leading-[24px] py-[16px]'><span className=''>Home</span></h2>
       <div className='flex justify-between'>
         {user.map((users, index) => (
           <div
