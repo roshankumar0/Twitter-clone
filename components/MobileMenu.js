@@ -13,10 +13,10 @@ const MobileMenu = () => {
   ]);
 
   return (
-    <div className='flex md:hidden justify-around fixed bottom-0 border right-0 left-0  bg-white list-none'>
-      <ul className='p-[8px]'>
+    <div className=' md:hidden  fixed bottom-0 border right-0 left-0  bg-white list-none'>
+      <ul className='p-[8px] flex justify-around'>
         {MobileMenuIcon.map((icon, index) => (
-          <li className='cursor-pointer' key={index}>
+          <li className='cursor-pointer ' key={index}>
             <Link href={`${icon.url}`}>
               {React.cloneElement(icon.Icon, {
                 style: { width: '26px', height: '26px' },
