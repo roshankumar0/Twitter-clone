@@ -77,7 +77,7 @@ const Sidebar = () => {
                       }`}
                     onClick={() => handleOptionClick(index)}
                   >
-                    <div className="flex items-center px-[20px] hover hover:rounded-full h-[56px]">
+                    <div className="flex items-center p-[12px] lg:px-[20px] hover hover:rounded-full h-[56px]">
                       <span>
                         {React.cloneElement(sidenav.component, {
                           size: 30,

@@ -4,8 +4,10 @@ import { BsFillEmojiSmileFill } from 'react-icons/bs';
 import { GoLocation } from 'react-icons/go';
 import { TfiGallery } from 'react-icons/tfi';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Tweet } from '../store/cartSlice';
 
-const UserPost = ({ twitpost }) => {
+const UserPost = () => {
   const [userPosts] = useState([
     { Icon: <TfiGallery />, showIconName: "Media" },
     { Icon: <MdOutlineGifBox />, showIconName: "GIF" },
@@ -40,17 +42,15 @@ const UserPost = ({ twitpost }) => {
     setShowIcon(false);
   };
 
+  const dispatch = useDispatch();
+
   return (
     <div className='flex items-center py-[12px] '>
       <ul className='flex flex-1 justify-between'>
         {userPosts.map((post, index) => (
-          <div key={index} className='flex flex-col relative' onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}>
-            <li
-              className='flex relative flex-col cursor-pointer hover:bg-gray-100 transition ease-in-out delay-150 p-[12px] rounded-full text-[#1D9BF0]'
-            >
+          <div key={index} className='flex flex-col relative' onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
+            <li className='flex relative flex-col cursor-pointer hover:bg-gray-100 transition ease-in-out delay-150 p-[12px] rounded-full text-[#1D9BF0]'>
               {post.Icon}
-
             </li>
             <div>
               {hoveredIndex === index && showIcon && (
@@ -60,16 +60,9 @@ const UserPost = ({ twitpost }) => {
           </div>
         ))}
       </ul>
-      <div className='flex-1 text-end'>
-        <span
-          className='bg-[#1D9BF0] px-[16px] py-[8px] cursor-pointer rounded-full ml-[12px] opacity-[0.5] text-[15px] font-bold text-white'
-          onClick={twitpost}
-        >
-          Tweets
-        </span>
-      </div>
     </div>
   );
 };
 
 export default UserPost;
+

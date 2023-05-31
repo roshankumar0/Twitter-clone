@@ -4,24 +4,26 @@
 
 @layer components {
   .headerLink li {
-    @apply cursor-pointer text-sm font-light text-[#e5e5e5]
-    hover:text-[#b3b3b3] transition duration-100 md:ml-4;
+    @apply cursor-pointer text-sm font-light text-[#e5e5e5] hover: text-[#b3b3b3] transition duration-100 md:ml-4;
   }
 }
+
 @layer components {
   header {
-    @apply fixed left-0 top-0 z-50 flex w-full justify-between
-    items-center p-4 transition-all lg:px-10 lg:py-6;
+    @apply fixed left-0 top-0 z-50 flex w-full justify-between items-center p-4 transition-all  px-10 lg:py-6;
   }
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .twitter-color {
   color: rgb(29, 155, 240);
 }
+
 .twitter-bg-color {
   background-color: rgb(29, 155, 240);
 }
@@ -30,22 +32,28 @@
   background-color: rgba(128, 128, 128, 0.276);
   transition: color 0.4s ease;
 }
+
 .search_bg {
   background-color: rgba(128, 128, 128, 0.276);
 }
+
 .scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 .text-color {
   color: #536471;
 }
+
 .Retweet {
   color: green;
 }
+
 .like {
   color: pink;
 }
+
 .view {
   color: blue;
 }
@@ -53,6 +61,7 @@
 .scrollable-container {
   overflow-y: scroll;
 }
+
 .scrollable-container::-webkit-scrollbar {
   width: 0em;
 }
@@ -64,9 +73,11 @@
 .scrollable-container::-webkit-scrollbar-thumb {
   background-color: #888;
 }
+
 body {
   overflow: hidden;
 }
+
 /* #1D9BF0 */
 /* #__next{
   display: flex;
@@ -75,18 +86,26 @@ body {
 .userProfile__header {
   background-color: rgb(207, 217, 222);
 }
+
 .tweetList li {
   color: #536471;
   font-weight: 500;
   cursor: pointer;
   padding: 16px 0;
 }
+
 .tweetList li .active::after {
   background-color: red;
   content: "fha";
   height: 2px;
   width: 50px;
 }
+
 .sidebarIcon {
   padding: 12px;
+}
+
+.morebg {
+  background-color: rgba(255, 255, 255, 1.00);
+  box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
 }

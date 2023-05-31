@@ -48,7 +48,7 @@ const UserProfile = () => {
           <img
             src={`${userProfile}`}
             alt=""
-            className="h-[40px] w-[40px] rounded-full"
+            className="object-cover h-[40px] w-[40px] rounded-full"
           />
           <span className=" flex-col hidden lg:flex text-[15px]">
             <div>{name}</div>

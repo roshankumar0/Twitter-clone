@@ -12,8 +12,9 @@ import { updateEmail } from '../store/cartSlice';
 
 
 const Post = (props) => {
-    const { userProfile } = useSelector((state) => state.names)
-    const { username, post, time, message, share, likes, views, taguser } = props
+    const { userProfile,tweet } = useSelector((state) => state.names)
+    const userEmail = useSelector((state) => state.names.email);
+    const {  post, color, time, message, share, likes, views, taguser } = props
     const [inputs, setInput] = useState('')
     const dispatch = useDispatch()
     const { email } = useSelector((state) => state.names)
@@ -29,17 +30,16 @@ const Post = (props) => {
             <div className='flex flex-col hover:bg-[#EFF3F4]  ease-in duration-300 px-[16px]'>
                 <div className='flex pt-[12px]  max-w-[425px]  md:max-w-[100%]'>
                     <div className='w-[48px] mr-[12px]'>
-                        <img className=' mr-[12px]  h-[48px] w-[48px] rounded-full cursor-pointer ' src={`${userProfile}`} alt="logo profile" />
+                        <img className=' mr-[12px] object-cover h-[48px] w-[48px] rounded-full cursor-pointer ' src={`${userProfile}`} alt="logo profile" />
                     </div>
                     <div className='flex-1 pb-[12px] flex flex-col'>
                         <div className=' flex justify-between'>
                             <div className='flex'>
-                                <span>{username.toUpperCase()}</span>
+                                <span>{userEmail}</span>
                                 <div className='text-color flex items-center'>
                                     <VscVerifiedFilled className='twitter-color' />
                                     <div className=' flex items-center justify-between'>
-                                        <div className='ml-[4px]'>@{taguser}  </div>
-                                        {/* <div className='ml-[4px]'>@{taguser.toUpperCase()}</div> */}
+                                        <div className='ml-[4px]'>@ {tweet}  </div>
                                         <div>.</div>
                                         <div>{time}</div>
                                     </div>
@@ -84,17 +84,6 @@ const Post = (props) => {
                     </div>
                 </div>
             </div>
-            {/* <form onSubmit={handlesubmit}>
-                <input type='text' placeholder='search here something' className='bg-red-400' value={inputs} onChange={(e) => setInput(e.target.value)} />
-                <button type='submit'>submit</button>
-            </form>
-            <ul>
-                {email.map((emailList, index) => (
-                    <li key={index}>{emailList}</li>
-                ))}
-            </ul>
-
-            Email:{email} */}
         </div>
 
     )

@@ -1,9 +1,6 @@
-import React, { useRef, useEffect } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import Trending from './Trending';
-
 const Search = () => {
-  
+
 
   return (
     <div className='hidden md:block top-0 fixed w-[350px] bg-white'>
