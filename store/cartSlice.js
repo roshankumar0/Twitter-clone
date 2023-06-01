@@ -7,6 +7,7 @@ const nameSlice = createSlice({
         email: '',
         tweet: [],
         isLoggedIn: false,
+        value: 0
     },
     reducers: {
         updateUserInfo: (state, action) => {
@@ -24,9 +25,15 @@ const nameSlice = createSlice({
         },
         Logout: (state) => {
             state.isLoggedIn = false
+        },
+        increament: (state) => {
+            state.value += 1
+        },
+        decreament: (state) => {
+            state.value -= 1
         }
     },
 });
 
-export const { updateUserInfo, updateEmail, Tweet, Login, Logout } = nameSlice.actions;
+export const { updateUserInfo, updateEmail, Tweet, Login, Logout ,increament,decreament} = nameSlice.actions;
 export default nameSlice.reducer;

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { BsTwitter } from 'react-icons/bs';
+import { IoLogoTwitter } from 'react-icons/io';
 import { BiHomeCircle, BiHash, BiMessageRounded, BiBookmark, BiUser } from 'react-icons/bi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { CiViewList, CiCircleMore } from 'react-icons/ci';
@@ -58,57 +58,62 @@ const Sidebar = () => {
       <Head>
         <title>{`${dyamictitle} / Twitter`}</title>
       </Head>
-      <div className="hidden md:block shrink-[2] border-r-[1px]" ref={sidebarRef}>
-        <div className=' w-[88px] lg:w-[100%]  flex justify-end px-[8px] flex-col'>
+      <div className="hidden w-[275px] md:block h-[100%] border-r-[1px] fixed" ref={sidebarRef}>
+        <div className=' w-[88px] lg:w-[100%] h-[100%] flex justify-between px-[8px] flex-col'>
           <div className=" flex flex-col justify-start items-center lg:items-start  ">
-
-            <ul>
-              <div className="block">
-                <Link href="/">
-                  <div className="px-[12px]">
-                    <BsTwitter className="h-[46px] twitter-color hover rounded-full w-[46px] p-[10px]" />
-                  </div>
-                </Link>
-              </div>
-              {sidebar.map((sidenav, index) => (
-                <Link href={sidenav.url} key={index}>
-                  <li
-                    className={`flex items-center text-center ${activeOption === index ? 'font-bold ' : ''
-                      }`}
-                    onClick={() => handleOptionClick(index)}
-                  >
-                    <div className="flex items-center p-[12px] lg:px-[20px] hover hover:rounded-full h-[56px]">
-                      <span>
-                        {React.cloneElement(sidenav.component, {
-                          size: 30,
-                          color: activeOption === index ? 'black' : 'inherit',
-                        })}
-                      </span>
-                      <span
-                        className={`text-[20px] lg:block hidden ml-[16px] ${activeOption === index ? 'font-bold' : ''
-                          }`}
-                      >
-                        {sidenav.text}
-                      </span>
+            <div className='w-full'>
+              <div className='w-full mt-[2px] mb-[4px] flex flex-col'>
+                <div className="block">
+                  <Link href="/">
+                    <div>
+                      <IoLogoTwitter className="h-[51.4px] twitter-color hover rounded-full w-[51.4px] p-[10px]" />
                     </div>
-                  </li>
-                </Link>
-              ))}
-              <button onClick={handleMore}>
-                {sidebar[activeOption].url === '' && <More />}
-                {more && <More />}
-              </button>
-              <button
-                className="twitter-bg-color hidden lg:block w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px] min-h-[52px]"
-                onClick={handleMore}
-              >
-                Tweet
-              </button>
-              <div className=' twitter-bg-color min-w-[52px] text-[17px] font-bold my-[16px] text-white flex items-center justify-center lg:hidden min-h-[52px] h-[52px] w-[52px] rounded-full'>
-                +
-                <BiLeaf />
+                  </Link>
+                </div>
+                <ul>
+                  {sidebar.map((sidenav, index) => (
+                    <Link href={sidenav.url} key={index}>
+                      <li
+                        className={`flex items-center text-center py-[4px] ${activeOption === index ? 'font-bold ' : ''
+                          }`}
+                        onClick={() => handleOptionClick(index)}
+                      >
+                        <div className="flex items-center p-[12px] hover hover:rounded-full h-[56px]">
+                          <span>
+                            {React.cloneElement(sidenav.component, {
+                              size: 26.5,
+                              color: activeOption === index ? 'black' : 'inherit',
+                            })}
+                          </span>
+                          <span
+                            className={`text-[20px] lg:block hidden ml-[16px] mr-[20px] leading-[24px] text-[#0E1419] ${activeOption === index ? 'font-bold' : ''
+                              }`}
+                          >
+                            {sidenav.text}
+                          </span>
+                        </div>
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+                <div>
+                  <button onClick={handleMore}>
+                    {sidebar[activeOption].url === '' && <More />}
+                    {more && <More />}
+                  </button>
+                  <button
+                    className="twitter-bg-color hidden lg:block w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px] min-h-[52px]"
+                    onClick={handleMore}
+                  >
+                    Tweet
+                  </button>
+                  <div className=' twitter-bg-color min-w-[52px] text-[17px] font-bold my-[16px] text-white flex items-center justify-center lg:hidden min-h-[52px] h-[52px] w-[52px] rounded-full'>
+                    +
+                    <BiLeaf />
+                  </div>
+                </div>
               </div>
-            </ul>
+            </div>
 
           </div>
           <UserProfile />

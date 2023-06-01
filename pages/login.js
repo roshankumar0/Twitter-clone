@@ -39,7 +39,7 @@ const Loginuser = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='flex flex-col'>
                         <ul className='flex items-center px-[16px]'>
-                            <li className='flex-1 cursor-pointer  text-[#0F1419]'><RxCross2 className='h-[34px] w-[34px] hover:bg-slate-100 rounded-full p-[8px]' /></li>
+                            <li className='flex-1 text-[#0F1419]'><RxCross2 className='cursor-pointer  h-[34px] w-[34px] hover:bg-slate-100 rounded-full p-[8px]' /></li>
                             <li className=''><BsTwitter className="h-[46px] twitter-color cursor-pointer w-[46px] p-[10px]" /></li>
                             <li className='flex-1'></li>
                         </ul>
@@ -69,7 +69,7 @@ const Loginuser = () => {
                                 <div className='bg-black text-white rounded-full text-center cursor-pointer my-[12px]'>
                                     <button onClick={handleLogin} className='py-[12px] font-bold ' type='submit'>Next</button>
                                 </div>
-                                <button className=' w-full'>Forgot password?</button>
+                                <button className=' w-full'><Link href={`forgot`}>Forgot password?</Link></button>
                                 <div className='mt-[40px] text-[15px]'>
                                     <span className='text-[#536471]'>Don't have an account? </span>
                                     <span className='text-[#1D9BF0]'><Link href={`/signup`}>Sign up</Link></span>

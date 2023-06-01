@@ -19,12 +19,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-        <div className='flex justify-between  min-h-screen max-w-[1300px] lg:m-auto'>
-          <div className='w-275px flex justify-end items-start'>
-            {user && <Sidebar />}
-          </div>
-          <div className='flex-1'>
-            <Component {...pageProps} />
+        <div className='overflow-y-scroll relative'>
+          <div className='flex min-h-screen relative '>
+            <div className='md:basis-[26.5%] flex justify-end relative'>
+              {user && <Sidebar />}
+            </div>
+            <div className='w-[990px]'>
+              <Component {...pageProps} />
+            </div>
           </div>
         </div>
       </Provider>

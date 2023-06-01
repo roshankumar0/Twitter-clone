@@ -3,6 +3,7 @@ import Feeds from '../components/feeds';
 import Widgets from '../components/widgets';
 import Header from '../components/Header';
 import MobileMenu from '../components/MobileMenu';
+import TweetChat from '../components/TweetChat'
 function Index() {
   const [scrolls, setScroll] = useState(false);
 
@@ -23,12 +24,13 @@ function Index() {
   }, []);
 
   return (
-    <div className=' max-w-[1300px] overflow-y-scroll relative'>
-      <div className={`max-w-[990px] flex md:h-[100vh]  h-[153vh] ${scrolls ? "bg-red-500" : ""}`}>
-        <div className="  flex-1  lg:justify-between flex">
-          <div className='max-w-[600px] border-[1px]'>
-            <Header />
-            <Feeds />
+    <div className=' '>
+      <div className={`  flex h-[100vh] ${scrolls ? "bg-red-500" : ""}`}>
+        <div className="  flex-1 flex justify-between">
+          <div className=' flex flex-col max-w-[600px]'>
+            <div className='sticky top-0 z-10 bg-white'><Header /></div>
+            <div>< TweetChat /></div>
+            <div><Feeds /></div>
           </div>
           <div className="hidden lg:block w-[350px] mr-[10px]">
             <Widgets />

@@ -39,7 +39,7 @@ const Loginuser = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='flex flex-col'>
                         <ul className='flex items-center px-[16px]'>
-                            <li className='flex-1 cursor-pointer  text-[#0F1419]'><RxCross2 className='h-[34px] w-[34px] font-bold hover:bg-slate-100 rounded-full p-[8px]' /></li>
+                            <li className='flex-1 text-[#0F1419]'><RxCross2 className='cursor-pointer  h-[34px] w-[34px] font-bold hover:bg-slate-100 rounded-full p-[8px]' /></li>
                             <li><BsTwitter className="h-[46px] twitter-color cursor-pointer w-[46px] p-[10px]" /></li>
                             <li className='flex-1'></li>
                         </ul>
