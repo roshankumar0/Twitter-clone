@@ -58,7 +58,7 @@ const Sidebar = () => {
       <Head>
         <title>{`${dyamictitle} / Twitter`}</title>
       </Head>
-      <div className="hidden w-[275px] md:block h-[100%] border-r-[1px] fixed" ref={sidebarRef}>
+      <div className="hidden w-[275px] md:block h-[100%] fixed" ref={sidebarRef}>
         <div className=' w-[88px] lg:w-[100%] h-[100%] flex justify-between px-[8px] flex-col'>
           <div className=" flex flex-col justify-start items-center lg:items-start  ">
             <div className='w-full'>
@@ -70,39 +70,41 @@ const Sidebar = () => {
                     </div>
                   </Link>
                 </div>
-                <ul>
+              <div>
+              <ul className='flex flex-col font-[Roboto]'>
                   {sidebar.map((sidenav, index) => (
                     <Link href={sidenav.url} key={index}>
                       <li
-                        className={`flex items-center text-center py-[4px] ${activeOption === index ? 'font-bold ' : ''
+                        className={`flex items-center text-center py-[1px] ${activeOption === index ? 'font-bold ' : ''
                           }`}
                         onClick={() => handleOptionClick(index)}
                       >
                         <div className="flex items-center p-[12px] hover hover:rounded-full h-[56px]">
-                          <span>
+                          <div>
                             {React.cloneElement(sidenav.component, {
-                              size: 26.5,
+                              size: 27,
                               color: activeOption === index ? 'black' : 'inherit',
                             })}
-                          </span>
-                          <span
+                          </div>
+                          <div
                             className={`text-[20px] lg:block hidden ml-[16px] mr-[20px] leading-[24px] text-[#0E1419] ${activeOption === index ? 'font-bold' : ''
                               }`}
                           >
-                            {sidenav.text}
-                          </span>
+                           <span> {sidenav.text}</span>
+                          </div>
                         </div>
                       </li>
                     </Link>
                   ))}
                 </ul>
-                <div>
+              </div>
+                <div className='flex'>
                   <button onClick={handleMore}>
                     {sidebar[activeOption].url === '' && <More />}
                     {more && <More />}
                   </button>
                   <button
-                    className="twitter-bg-color hidden lg:block w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full h-[56px] min-h-[52px]"
+                    className="bg-[#1D9BF0] hidden lg:block w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full min-h-[52px]"
                     onClick={handleMore}
                   >
                     Tweet
@@ -116,7 +118,7 @@ const Sidebar = () => {
             </div>
 
           </div>
-          <UserProfile />
+          <div><UserProfile /></div>
         </div>
       </div>
     </>

@@ -72,7 +72,7 @@ const Post = (props) => {
                                     <AiOutlineHeart />
                                     <h2 className='px-[12px] text-[13px]'>{likes}</h2>
                                 </div>
-                                <div className='items-center cursor-pointer hidden md:block'>
+                                <div className='items-center cursor-pointer hidden md:flex'>
                                     <TbBrandGoogleAnalytics />
                                     <h2 className='px-[12px] text-[13px]'>{views}</h2>
                                 </div>

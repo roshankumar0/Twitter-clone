@@ -18,10 +18,13 @@ const TweetChat = () => {
 
   return (
     <div className='px-[16px]  mt-[140px] md:mt-0 flex '>
-      <div>
+      <div className='pt-[4px] mr-[12px] flex flex-col'>
+        <div className='basis-[48px]'>
         <Link href={`/profile`}>
-          <img className='mr-[12px] h-[50px] object-cover w-[50px] rounded-full cursor-pointer' src={`${userProfile}`} alt="" />
+          <img className='mr-[12px] h-[48px] object-cover w-[48px] rounded-full cursor-pointer' src={`${userProfile}`} alt="" />
         </Link>
+        </div>
+        <div></div>
       </div>
       <div className='basis-[100%]'>
         <div className='flex'>
