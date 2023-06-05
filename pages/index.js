@@ -27,7 +27,7 @@ function Index() {
     <div className=' '>
       <div className={`  flex h-[100vh] ${scrolls ? "bg-red-500" : ""}`}>
         <div className=" flex-1 flex justify-between">
-          <div className='border-l-[0.5px] border-r-[0.5px]   flex flex-col max-w-[600px]'>
+          <div className='  flex flex-col max-w-[600px] border-l-[0.5px] border-r-[0.5px] '>
             <div className='sticky top-0 z-10 bg-white'><Header /></div>
             <div>< TweetChat /></div>
             <div><Feeds /></div>
