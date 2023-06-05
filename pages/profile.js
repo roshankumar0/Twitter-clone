@@ -6,7 +6,6 @@ import Tweet from '../components/tweets';
 import Like from '../components/Likes';
 import Replie from '../components/replies';
 import Medias from '../components/media';
-import Search from '../components/search';
 import Editprofile from '../components/Editprofile';
 import { useSelector } from 'react-redux';
 const Tweets = () => {
@@ -106,9 +105,6 @@ const Profile = () => {
             </div>
             {showprofile && <Editprofile />}
           </div>
-        </div>
-        <div className='flex-[0.4]'>
-          <Search />
         </div>
       </div>
     </div>
