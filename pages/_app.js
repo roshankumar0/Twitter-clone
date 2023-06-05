@@ -6,15 +6,15 @@ import store from '../store/store';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-
 function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-  const user = store.getState().names.isLoggedIn
+  const router = useRouter();
+  const user = store.getState().names.isLoggedIn;
+
   useEffect(() => {
     if (!user && router.pathname !== '/login') {
-      router.push("/login")
+      router.push("/login");
     }
-  }, [])
+  }, []);
 
   return (
     <>
