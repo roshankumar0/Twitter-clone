@@ -21,7 +21,7 @@ const Header = () => {
   const ActiveComponent = user[active].Component;
 
   return (
-    <div className='border-b-1'>
+    <div className='border w-full'>
       <div className=' flex flex-col z-10 '>
         <div className='md:hidden items-center justify-between block relative'>
           <div className='hidden md:block'>ROSHAN</div>
@@ -43,7 +43,7 @@ const Header = () => {
           </div>
           <div></div>
         </div>
-        <div className='border-b'>
+        <div className=''>
           <div className='flex flex-col'>
             <h2 className='font-bold hidden h-[53px] lg:flex flex-col justify-center md:block text-black text-[20px] leading-[24px] pt-[2px] pl-[12px]'><span className=''>Home</span></h2>
             <div></div>
@@ -52,9 +52,9 @@ const Header = () => {
               <div
                 onClick={() => handleUser(index)}
                 key={index}
-                className={`md:hover:bg-slate-100 flex-1 justify-center flex`}
+                className={`md:hover:bg-[#E7E7E8] flex-1 justify-center flex`}
               >
-                <p className={` text-[15px] text-[#536471]  font-bold cursor-pointer py-4 ${active === index && "border-b-[4px] text-black rounded-sm font-bold text-[#536471]  border-blue-400"}`}>{users.userPersonal}</p>
+                <p className={` text-[15px] text-[#536471]  font-bold cursor-pointer py-4 ${active === index && "border-b-[4px] rounded-sm font-bold text-black  border-blue-400"}`}>{users.userPersonal}</p>
               </div>
             ))}
           </div>

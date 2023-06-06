@@ -58,10 +58,6 @@
   color: blue;
 }
 
-.scrollable-container {
-  overflow-y: scroll;
-}
-
 .scrollable-container::-webkit-scrollbar {
   width: 010pxem;
   background-color: red;

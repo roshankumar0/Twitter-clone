@@ -27,7 +27,7 @@ const Post = (props) => {
 
     return (
         <div className='  border-t-[1px]'>
-            <div className='flex flex-col hover:bg-[#EFF3F4]  ease-in duration-300 px-[16px]'>
+            <div className='flex flex-col bg-white hover:bg-[#F7F7F7] ease-in duration-300 px-[16px]'>
                 <div className='flex pt-[12px]  max-w-[425px]  md:max-w-[100%]'>
                     <div className='w-[48px] mr-[12px]'>
                         <img className=' mr-[12px] object-cover h-[48px] w-[48px] rounded-full cursor-pointer ' src={`${userProfile}`} alt="logo profile" />
@@ -35,7 +35,7 @@ const Post = (props) => {
                     <div className='flex-1 pb-[12px] flex flex-col'>
                         <div className=' flex justify-between'>
                             <div className='flex'>
-                                <span>{userEmail}</span>
+                                <span className='font-semibold'>{userEmail}</span>
                                 <div className='text-color flex items-center'>
                                     <VscVerifiedFilled className='twitter-color' />
                                     <div className=' flex items-center justify-between'>

@@ -21,11 +21,11 @@ const Loginuser = () => {
 
     const isLoggedIn = useSelector((state) => state.names.isLoggedIn);
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            router.push('/');
-        }
-    }, [isLoggedIn]);
+    // useEffect(() => {
+    //     if (isLoggedIn) {
+    //         router.push('/');
+    //     }
+    // }, [isLoggedIn]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,6 +34,7 @@ const Loginuser = () => {
     };
 
     const isEmailValid = email.length >= 6
+    
 
     return (
         <>
@@ -70,16 +71,16 @@ const Loginuser = () => {
                                         <div className='text-[17px] text-[#0F1419]'>or</div>
                                         <div className='h-[0.2px] flex-1 bg-slate-400 mx-[4px]'></div>
                                     </div>
-                                    <div className='rounded-[4px] border mt-[16px pb-[8px] pt-[12px]'>
+                                    <div className='rounded-[4px]  mt-[16px pb-[8px] pt-[12px]'>
                                         <input value={email} onChange={(e) => setEmail(e.target.value)} type='text' placeholder='Phone, email, or username' className='w-full outline-none pl-2 bg-transparent' />
                                     </div>
                                     <div className='bg-black text-white rounded-full text-center cursor-pointer my-[12px]'>
-                                        <button onClick={handleLogin} className={`py-[12px] font-bold ${isEmailValid ? '' : 'cursor-not-allowed opacity-50'}`} type='submit' disabled={!isEmailValid}>
+                                        <button onClick={handleLogin} className={`py-[12px] font-bold w-full ${isEmailValid ? '' : 'cursor-not-allowed opacity-50'}`} type='submit' disabled={!isEmailValid}>
                                             Next
                                         </button>
                                     </div>
                                     <button className=' w-full'>
-                                        <Link href={`forgot`}>Forgot password?</Link>
+                                        <Link href={`/forgot`}>Forgot password?</Link>
                                     </button>
                                     <div className='mt-[40px] text-[15px]'>
                                         <span className='text-[#536471]'>Don't have an account? </span>

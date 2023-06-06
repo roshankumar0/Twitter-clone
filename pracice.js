@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { NON_AUTHENTICATED_PAGES } from '../utils/constants';
+import { useRouter } from 'next/router';
 
 const nameSlice = createSlice({
     name: 'name',
@@ -27,10 +27,12 @@ const nameSlice = createSlice({
             state.tweet = [...state.tweet, action.payload]
         },
         Login: (state) => {
-            state.isLoggedIn = true
+            state.isLoggedIn = true;
             localStorage.setItem('isLoggedIn1', 'yes');
-            window.location.href = '/';
-        },
+      
+            const router = useRouter(); // Add this line
+            router.push('/'); // Redirect to the "/" page
+          },
         Logout: (state) => {
             localStorage.setItem('isLoggedIn1', '');
             state.isLoggedIn = false;
@@ -38,7 +40,7 @@ const nameSlice = createSlice({
         checkLoggedIn: (state) => {
             const isLoggedIn = localStorage.getItem('isLoggedIn1') === 'yes';
             state.isLoggedIn = isLoggedIn;
-            if (!isLoggedIn && !NON_AUTHENTICATED_PAGES.includes(window.location.pathname)) {
+            if (!isLoggedIn && window.location.pathname !== '/login') {
                 window.location.href = '/login';
             }
         },

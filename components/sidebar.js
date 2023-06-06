@@ -1,31 +1,33 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { IoLogoTwitter } from 'react-icons/io';
-import { BiHomeCircle, BiHash, BiMessageRounded, BiBookmark, BiUser } from 'react-icons/bi';
-import { IoMdNotificationsOutline } from 'react-icons/io';
-import { CiViewList, CiCircleMore } from 'react-icons/ci';
+
 import { BiLeaf } from 'react-icons/bi';
-import { TiSocialTwitterCircular } from 'react-icons/ti';
-import { AiFillHome } from 'react-icons/ai';
 import Link from 'next/link';
 import UserProfile from './UserProfile';
-import More from './More';
+import Mores from './More';
 import Head from 'next/head';
+import { useSelector } from 'react-redux';
+import { Home, Message, Notifications, Lists, Bookmarks, Twitterblue, More, Profile, Explore } from '../components/icons';
+import { NON_AUTHENTICATED_PAGES } from '../utils/constants';
 
 const Sidebar = () => {
   const [sidebar] = useState([
-    { text: 'Home', component: <AiFillHome />, url: '/' },
-    { text: 'Explore', component: <BiHash />, url: '/explore' },
-    { text: 'Notification', component: <IoMdNotificationsOutline />, url: '/notification' },
-    { text: 'Messages', component: <BiMessageRounded />, url: '/message' },
-    { text: 'Lists', component: <CiViewList />, url: '/lists' },
-    { text: 'Bookmarks', component: <BiBookmark />, url: '/bookmarks' },
-    { text: 'Twitter Blue', component: <TiSocialTwitterCircular />, url: '/twitterblue' },
-    { text: 'Profile', component: <BiUser />, url: '/profile' },
-    { text: 'More', component: <CiCircleMore />, url: '' },
+    { text: 'Home', component: <Home />, url: '/' },
+    { text: 'Explore', component: <Explore />, url: '/explore' },
+    { text: 'Notifications', component: <Notifications />, url: '/notification' },
+    { text: 'Messages', component: <Message />, url: '/message' },
+    { text: 'Lists', component: <Lists />, url: '/lists' },
+    { text: 'Bookmarks', component: <Bookmarks />, url: '/bookmarks' },
+    { text: 'Twitter Blue', component: <Twitterblue />, url: '/twitterblue' },
+    { text: 'Profile', component: <Profile />, url: '/profile' },
+    { text: 'More', component: <More />, url: '' },
   ]);
+
   const [more, setMore] = useState(false);
   const sidebarRef = useRef(null);
   const [activeOption, setActiveOption] = useState(0);
+  const [Notification, seNotification] = useState(12);
+  const { isLoggedIn } = useSelector(state => state.names);
 
   const handleOptionClick = (index) => {
     setActiveOption(index);
@@ -48,15 +50,22 @@ const Sidebar = () => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
+
+
+
   const activeUrl = sidebar[activeOption].url;
   const pageTitle = activeUrl === '' ? 'More' : activeUrl.substring(1).charAt(0).toUpperCase() + activeUrl.substring(2);
 
-  const dyamictitle = sidebar[activeOption].url === '/' ? 'Home' : pageTitle;
+  const dynamicTitle = sidebar[activeOption].url === '/' ? 'Home' : pageTitle;
+
+  if (!isLoggedIn || NON_AUTHENTICATED_PAGES.includes(window.location.pathname)) {
+    return <div></div>
+  }
 
   return (
     <>
       <Head>
-        <title>{`${dyamictitle} / Twitter`}</title>
+        <title>{`${dynamicTitle} / Twitter`}</title>
       </Head>
       <div className="hidden w-[275px] md:block h-[100%] fixed" ref={sidebarRef}>
         <div className=' w-[88px] lg:w-[100%] h-[100%] flex justify-between px-[8px] flex-col'>
@@ -70,38 +79,52 @@ const Sidebar = () => {
                     </div>
                   </Link>
                 </div>
-              <div>
-              <ul className='flex flex-col font-[Roboto]'>
-                  {sidebar.map((sidenav, index) => (
-                    <Link href={sidenav.url} key={index}>
-                      <li
-                        className={`flex items-center text-center py-[1px] ${activeOption === index ? 'font-bold ' : ''
-                          }`}
-                        onClick={() => handleOptionClick(index)}
-                      >
-                        <div className="flex items-center p-[12px] hover hover:rounded-full h-[56px]">
-                          <div>
-                            {React.cloneElement(sidenav.component, {
-                              size: 27,
-                              color: activeOption === index ? 'black' : 'inherit',
-                            })}
+                <div>
+                  <ul className='flex flex-col font-[Roboto] pt-[4px]'>
+                    {sidebar.map((sidenav, index) => (
+                      <Link href={sidenav.url} key={index}>
+                        <li
+                          className={`flex items-center text-center py-[1px] ${activeOption === index ? 'font-bold ' : ''
+                            }`}
+                          onClick={() => handleOptionClick(index)}
+                        >
+                          <div className="flex items-center p-[12px] hover hover:rounded-full h-[56px]">
+                            <div className=''>
+                              <div className='p-3 pl-[0] '>
+                                <div className=' h-[26.25px] w-[26.25px] relative'>
+                                  {React.cloneElement(sidenav.component, {
+                                    color: activeOption === index ? 'black' : 'inherit',
+                                  })}
+                                  {sidenav.text === 'Home' && (
+                                    <div className=" top-[-4px] right-[1px] w-[7px] h-[7px] absolute  font-light flex items-center justify-center bg-[#1D9BF0] rounded-full"></div>
+
+                                  )}
+                                  <div onClick={() => seNotification('')}>
+                                    {sidenav.text === 'Notifications' && Notification && (
+                                      <div className=" w-[24px] h-[16px] absolute top-[-6px] right-[-3px] text-[10px] font-light flex items-center justify-center bg-[#1D9BF0] text-white rounded-full">{Notification}</div>
+                                    )}
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                            <div
+                              className={`text-[20px] lg:block hidden ml-[8px] leading-[24px] text-[#0E1419] ${activeOption === index ? 'font-bold' : ''
+                                }`}
+                            >
+                              <span> {sidenav.text}</span>
+                            </div>
+
                           </div>
-                          <div
-                            className={`text-[20px] lg:block hidden ml-[16px] mr-[20px] leading-[24px] text-[#0E1419] ${activeOption === index ? 'font-bold' : ''
-                              }`}
-                          >
-                           <span> {sidenav.text}</span>
-                          </div>
-                        </div>
-                      </li>
-                    </Link>
-                  ))}
-                </ul>
-              </div>
+                        </li>
+                      </Link>
+                    ))}
+                  </ul>
+                </div>
                 <div className='flex'>
                   <button onClick={handleMore}>
-                    {sidebar[activeOption].url === '' && <More />}
-                    {more && <More />}
+                    {sidebar[activeOption].url === '' && <Mores />}
+                    {more && <Mores />}
                   </button>
                   <button
                     className="bg-[#1D9BF0] hidden lg:block w-[90%] text-[17px] font-bold my-[16px] text-white rounded-full min-h-[52px]"

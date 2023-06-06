@@ -21,11 +21,11 @@ const Loginuser = () => {
     const isLoggedIn = useSelector((state) => state.names.isLoggedIn);
     const userEmail = useSelector((state) => state.names.email);
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            router.push('/');
-        }
-    }, [isLoggedIn]);
+    // useEffect(() => {
+    //     if (isLoggedIn) {
+    //         router.push('/');
+    //     }
+    // }, [isLoggedIn]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -1,30 +1,21 @@
 import MobileMenu from '../components/MobileMenu';
 import Sidebar from '../components/sidebar';
 import '../styles/globals.css';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import store from '../store/store';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import Initialize from '../components/initialize';
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  const user = store.getState().names.isLoggedIn;
-
-  useEffect(() => {
-    if (!user && router.pathname !== '/login') {
-      router.push("/login");
-    }
-  }, []);
-
   return (
     <>
       <Provider store={store}>
-        <div className='overflow-y-scroll scrollable-container relative'>
+        <Initialize />
+        <div className='overflow-y-scroll  relative'>
           <div className='flex min-h-screen relative '>
             <div className='lg:basis-[26.5%] md:basis-[22.5%] flex md:justify-end relative'>
-              {user && <Sidebar />}
+              <Sidebar />
             </div>
-            <div className='w-[990px]'>
+            <div className='flex-1'>
               <Component {...pageProps} />
             </div>
           </div>

@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { RxCross2 } from 'react-icons/rx'
 import { AiFillCamera } from 'react-icons/ai'
+import { useSelector } from 'react-redux';
 
 const Editprofile = () => {
     const [cross, setCross] = useState(false);
+    const { userProfile } = useSelector(state => state.names)
 
 
     const handleToggleCross = () => {
@@ -28,7 +30,7 @@ const Editprofile = () => {
                         <AiFillCamera />
                     </div>
                     <div className='h-[100px] cursor-pointer w-[100px] bg-white bottom-[-50px] absolute left-5 rounded-full p-[4px]'>
-                        <img className='rounded-full w-full h-full' src="https://tse1.mm.bing.net/th?id=OIP.QOZmA9QHepri9FIxH6lBHAHaD4&pid=Api&P=0&h=180" alt="" />
+                        <img className='rounded-full w-full h-full object-cover' src={userProfile} alt="" />
                     </div>
                 </div>
             </div>

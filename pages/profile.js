@@ -46,9 +46,9 @@ const Profile = () => {
 
     }
   }, [showprofile]);
-  const { name, username } = useSelector((state) => state.names)
+  const { name, username,userProfile } = useSelector((state) => state.names)
   return (
-    <div className='block overflow-y-scroll h-[100vh] '>
+    <div className='block h-[100vh]'>
       <div className='md:flex flex-1 '>
         <div className='md:flex-[0.6] flex-1 border-r-[1px]'>
           <div className='bg-white  top-0 z-40 sticky'>
@@ -66,7 +66,7 @@ const Profile = () => {
           </div>
           <div className='flex flex-col relative'>
             <div className='userProfile__header h-[400px] relative '>
-              <img src="https://tse4.mm.bing.net/th?id=OIP.2ipyciZc3yjfiBePI2p0QAHaF6&pid=Api&P=0&h=180" alt="" className='rounded-full w-[133px] h-[133px] absolute bottom-0 left-0 translate-x-1/2 translate-y-1/2' />
+              <img src={userProfile} alt="" className='rounded-full object-cover w-[133px] h-[133px] absolute bottom-0 left-0 translate-x-1/2 translate-y-1/2' />
             </div>
             <div className='mb-[16px] pt-[12px] px-[16px]'>
               <div className='flex justify-end'>

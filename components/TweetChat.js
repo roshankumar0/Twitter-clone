@@ -38,7 +38,7 @@ const TweetChat = () => {
           <div className=''> <UserPost /></div>
           <div>
             <button onClick={handleTweet} className='bg-[#1D9BF0] px-[16px] py-[8px] cursor-pointer rounded-full ml-[12px] opacity-[0.5] text-[15px] font-bold text-white'>
-              Tweets
+              Tweet
             </button>
           </div>
         </div>
