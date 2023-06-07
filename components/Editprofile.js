@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { RxCross2 } from 'react-icons/rx'
 import { AiFillCamera } from 'react-icons/ai'
 import { useSelector } from 'react-redux';
@@ -30,7 +31,9 @@ const Editprofile = () => {
                         <AiFillCamera />
                     </div>
                     <div className='h-[100px] cursor-pointer w-[100px] bg-white bottom-[-50px] absolute left-5 rounded-full p-[4px]'>
-                        <img className='rounded-full w-full h-full object-cover' src={userProfile} alt="" />
+                        <Image width={100}
+                            height={100}
+                            loading="lazy" className='rounded-full w-full h-full object-cover' src={userProfile} alt="" />
                     </div>
                 </div>
             </div>

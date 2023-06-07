@@ -1,7 +1,8 @@
 import MobileMenu from '../components/MobileMenu';
 import Sidebar from '../components/sidebar';
 import '../styles/globals.css';
-import { Provider, useSelector } from 'react-redux';
+import Head from 'next/head'
+import { Provider } from 'react-redux';
 import store from '../store/store';
 import Initialize from '../components/initialize';
 
@@ -9,6 +10,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
+        <Head>
+          <meta name="description" content="twitter-clone" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Initialize />
         <div className='overflow-y-scroll  relative'>
           <div className='flex min-h-screen relative '>

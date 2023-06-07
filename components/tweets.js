@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image';
+
 
 const Tweets = () => {
   return (
@@ -7,7 +9,9 @@ const Tweets = () => {
       <div className='py-[12px] px-[16px]'>
         <div className='flex justify-between items-center'>
           <div className='flex'>
-            <img src="https://wallpapercave.com/wp/wp3146794.jpg" alt=""  className='h-[48px] w-[48px] rounded-md'/>
+            <Image width={48}
+              height={48}
+              loading="lazy" src="https://wallpapercave.com/wp/wp3146794.jpg" alt="" className='rounded-md' />
             <div className='flex flex-col'>
               <span>Hostinger</span>
               <span>@Hostinger</span>

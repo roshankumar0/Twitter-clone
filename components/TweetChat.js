@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import UserPost from './UserPost';
+import Image from 'next/image';
+
 import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
 import { Tweet } from '../store/cartSlice';
@@ -17,20 +19,20 @@ const TweetChat = () => {
   };
 
   return (
-    <div className='px-[16px]  mt-[140px] md:mt-0 flex '>
+    <div className='px-[16px] py-[4px] mt-[140px] md:mt-0 flex '>
       <div className='pt-[4px] mr-[12px] flex flex-col'>
-        <div className='basis-[48px]'>
-        <Link href={`/profile`}>
-          <img className='mr-[12px] h-[48px] object-cover w-[48px] rounded-full cursor-pointer' src={`${userProfile}`} alt="" />
-        </Link>
+        <div className='w-[48px] mr-[12px]'>
+          <Image width={48}
+            height={48}
+            loading="lazy" className=' mr-[12px] object-cover h-[48px] w-[48px] rounded-full cursor-pointer ' src={`${userProfile}`} alt="logo profile" />
         </div>
         <div></div>
       </div>
-      <div className='basis-[100%]'>
+      <div className='basis-[100%] pt-1'>
         <div className='flex'>
           <div className='flex flex-col flex-1'>
             <div className='flex flex-col'>
-              <input type='text' className='flex-1 outline-none py-[12px] placeholder-[#536471] text-[18px]  p-[12px]' placeholder='What is happening?!' value={tweetText} onChange={(e) => setTweetText(e.target.value)} />
+              <input type='text' className='flex-1 outline-none py-[12px] placeholder-[#536471] text-[20px] ' placeholder='What is happening?!' value={tweetText} onChange={(e) => setTweetText(e.target.value)} />
             </div>
           </div>
         </div>

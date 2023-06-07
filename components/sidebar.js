@@ -27,7 +27,7 @@ const Sidebar = () => {
   const sidebarRef = useRef(null);
   const [activeOption, setActiveOption] = useState(0);
   const [Notification, seNotification] = useState(12);
-  const { isLoggedIn } = useSelector(state => state.names);
+  const { roshan } = useSelector(state => state.names);
 
   const handleOptionClick = (index) => {
     setActiveOption(index);
@@ -58,7 +58,7 @@ const Sidebar = () => {
 
   const dynamicTitle = sidebar[activeOption].url === '/' ? 'Home' : pageTitle;
 
-  if (!isLoggedIn || NON_AUTHENTICATED_PAGES.includes(window.location.pathname)) {
+  if (!roshan || NON_AUTHENTICATED_PAGES.includes(window.location.pathname)) {
     return <div></div>
   }
 
@@ -109,7 +109,7 @@ const Sidebar = () => {
                               </div>
                             </div>
                             <div
-                              className={`text-[20px] lg:block hidden ml-[8px] leading-[24px] text-[#0E1419] ${activeOption === index ? 'font-bold' : ''
+                              className={`text-[20.3px] tracking-wide  lg:block hidden ml-[8px] leading-[24px] text-[#0E1419] ${activeOption === index ? 'font-bold' : ''
                                 }`}
                             >
                               <span> {sidenav.text}</span>

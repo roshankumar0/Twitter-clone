@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { VscVerifiedFilled } from 'react-icons/vsc';
 import { IoIosMore } from 'react-icons/io';
 import { AiOutlineMessage, AiOutlineHeart } from 'react-icons/ai';
@@ -12,9 +13,9 @@ import { updateEmail } from '../store/cartSlice';
 
 
 const Post = (props) => {
-    const { userProfile,tweet } = useSelector((state) => state.names)
+    const { userProfile, tweet } = useSelector((state) => state.names)
     const userEmail = useSelector((state) => state.names.email);
-    const {  post, color, time, message, share, likes, views, taguser } = props
+    const { post, color, time, message, share, likes, views, taguser } = props
     const [inputs, setInput] = useState('')
     const dispatch = useDispatch()
     const { email } = useSelector((state) => state.names)
@@ -30,7 +31,9 @@ const Post = (props) => {
             <div className='flex flex-col bg-white hover:bg-[#F7F7F7] ease-in duration-300 px-[16px]'>
                 <div className='flex pt-[12px]  max-w-[425px]  md:max-w-[100%]'>
                     <div className='w-[48px] mr-[12px]'>
-                        <img className=' mr-[12px] object-cover h-[48px] w-[48px] rounded-full cursor-pointer ' src={`${userProfile}`} alt="logo profile" />
+                        <Image width={48}
+                            height={48}
+                            loading="lazy" className=' mr-[12px] object-cover h-[48px] w-[48px] rounded-full cursor-pointer ' src={`${userProfile}`} alt="logo profile" />
                     </div>
                     <div className='flex-1 pb-[12px] flex flex-col'>
                         <div className=' flex justify-between'>

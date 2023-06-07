@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image';
+
 
 const TrendingCountry = (props) => {
   const { gameName, channel, time, imgUlr } = props
@@ -12,7 +14,9 @@ const TrendingCountry = (props) => {
         <div>{gameName}</div>
       </div>
       <div className='h-[68px] w-[68px]'>
-        <img src={`${imgUlr}`} alt="" className='w-[100%] rounded-lg' />
+        <Image  width={68}
+        height={68}
+        loading="lazy" src={`${imgUlr}`} alt="" className='rounded-lg' />
       </div>
     </div>
   )

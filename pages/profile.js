@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
 import React, { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { BsCalendar2Week } from 'react-icons/bs';
@@ -46,7 +48,7 @@ const Profile = () => {
 
     }
   }, [showprofile]);
-  const { name, username,userProfile } = useSelector((state) => state.names)
+  const { name, username, userProfile } = useSelector((state) => state.names)
   return (
     <div className='block h-[100vh]'>
       <div className='md:flex flex-1 '>
@@ -66,7 +68,9 @@ const Profile = () => {
           </div>
           <div className='flex flex-col relative'>
             <div className='userProfile__header h-[400px] relative '>
-              <img src={userProfile} alt="" className='rounded-full object-cover w-[133px] h-[133px] absolute bottom-0 left-0 translate-x-1/2 translate-y-1/2' />
+              <Image width={133}
+                height={133}
+                loading="lazy" src={userProfile} alt="" className='rounded-full object-cover absolute bottom-0 left-0 translate-x-1/2 translate-y-1/2' />
             </div>
             <div className='mb-[16px] pt-[12px] px-[16px]'>
               <div className='flex justify-end'>

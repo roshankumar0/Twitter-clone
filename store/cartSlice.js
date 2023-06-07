@@ -37,7 +37,7 @@ const nameSlice = createSlice({
         },
         checkLoggedIn: (state) => {
             const isLoggedIn = localStorage.getItem('isLoggedIn1') === 'yes';
-            state.isLoggedIn = isLoggedIn;
+            state.roshan = isLoggedIn;
             if (!isLoggedIn && !NON_AUTHENTICATED_PAGES.includes(window.location.pathname)) {
                 window.location.href = '/login';
             }

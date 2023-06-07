@@ -1,20 +1,16 @@
-import { MdOutlineGifBox, MdSchedule } from 'react-icons/md';
-import { BiPoll } from 'react-icons/bi';
-import { BsFillEmojiSmileFill } from 'react-icons/bs';
-import { GoLocation } from 'react-icons/go';
-import { TfiGallery } from 'react-icons/tfi';
+
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Tweet } from '../store/cartSlice';
-
+import {Media,GIF,Poll,Schedule,Location,Emoji} from '../components/icons'
 const UserPost = () => {
   const [userPosts] = useState([
-    { Icon: <TfiGallery />, showIconName: "Media" },
-    { Icon: <MdOutlineGifBox />, showIconName: "GIF" },
-    { Icon: <BiPoll />, showIconName: "Poll" },
-    { Icon: <BsFillEmojiSmileFill />, showIconName: "Emoji" },
-    { Icon: <MdSchedule />, showIconName: "Schedule" },
-    { Icon: <GoLocation />, showIconName: "Location " },
+    { Icon: <Media />, showIconName: "Media" },
+    { Icon: <GIF />, showIconName: "GIF" },
+    { Icon: <Poll />, showIconName: "Poll" },
+    { Icon: <Emoji />, showIconName: "Emoji" },
+    { Icon: <Schedule />, showIconName: "Schedule" },
+    { Icon: <Location />, showIconName: "Location " },
   ]);
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -47,12 +43,14 @@ const UserPost = () => {
   return (
     <>
       <div className='flex items-center'>
-        <ul className='flex flex-1 justify-between mt-3'>
+        <div className='flex flex-1 justify-between mt-3'>
           {userPosts.map((post, index) => (
-            <div key={index} className='flex flex-col relative' onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
-              <li className='flex relative flex-col cursor-pointer hover:bg-gray-100 transition ease-in-out delay-150 p-[12px] rounded-full text-[#1D9BF0]'>
+            <div key={index} className='flex flex-col min-h-[36px] min-w-[36px] justify-center cursor-pointer hover:bg-gray-100 transition ease-in-out delay-150 rounded-full relative' onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
+              <div className=' '>
+              <span style={{ height:"20px",width:"20px",color:"red",fill:"#1D9BF0"}} className='flex  ml-[8px] relative flex-col '>
                 {post.Icon}
-              </li>
+              </span>
+              </div>
               <div>
                 {hoveredIndex === index && showIcon && (
                   <span className='absolute text-white top-12 bg-slate-500 rounded-md text-[14px] p-[4px]'>{post.showIconName}</span>
@@ -60,7 +58,7 @@ const UserPost = () => {
               </div>
             </div>
           ))}
-        </ul>
+        </div>
       </div>
          </>
   );

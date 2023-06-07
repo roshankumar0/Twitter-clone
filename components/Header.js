@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 import React, { useState } from 'react';
 import { BsTwitter } from 'react-icons/bs';
 import Following from '../pages/following';
@@ -28,7 +28,9 @@ const Header = () => {
           <div className='flex items-center md:hidden min-h-[53px]'>
             <div className='flex-1'>
               <Link href={`/`}>
-                <img className='mr-[12px] h-[32px] w-[32px] rounded-full cursor-pointer' src={`${userProfile}`} alt="" />
+                <Image width={32}
+                  height={32}
+                  loading="lazy" className='mr-[12px] h-[32px] w-[32px] rounded-full cursor-pointer' src={`${userProfile}`} alt="" />
               </Link>
             </div>
             <div >
@@ -44,17 +46,20 @@ const Header = () => {
           <div></div>
         </div>
         <div className=''>
-          <div className='flex flex-col'>
-            <h2 className='font-bold hidden h-[53px] lg:flex flex-col justify-center md:block text-black text-[20px] leading-[24px] pt-[2px] pl-[12px]'><span className=''>Home</span></h2>
+          <div className='flex flex-col h-[53px] justify-center px-4'>
+            <h2 className='font-bold hidden h-[53px] lg:flex flex-col justify-center md:block text-black text-[20px] leading-[24px]'><span className=''>Home</span></h2>
             <div></div>
-          </div>        <div className='flex justify-between'>
+          </div>
+          <div className='flex justify-between h-[53px]'>
             {user.map((users, index) => (
               <div
                 onClick={() => handleUser(index)}
                 key={index}
-                className={`md:hover:bg-[#E7E7E8] flex-1 justify-center flex`}
+                className={`md:hover:bg-[#E7E7E8] flex-1 justify-center flex px-4`}
               >
-                <p className={` text-[15px] text-[#536471]  font-bold cursor-pointer py-4 ${active === index && "border-b-[4px] rounded-sm font-bold text-black  border-blue-400"}`}>{users.userPersonal}</p>
+                <div className=' w-full flex justify-center'>
+                  <p className={` text-[15px] text-[#536471]  font-bold cursor-pointer py-4 ${active === index && "border-b-[4px] rounded-sm font-bold text-black  border-blue-400"}`}>{users.userPersonal}</p>
+                </div>
               </div>
             ))}
           </div>
