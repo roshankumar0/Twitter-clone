@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
-import Image from 'next/image'; import Login from './Login';
+import Image from 'next/image';import Login from './Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInfo } from '../store/cartSlice';
 
@@ -44,11 +44,11 @@ const UserProfile = () => {
         {login && <Login />}
       </div>
       <div className="flex items-center p-[12px]" onClick={handleClick}>
-        <div className="  flex justify-center mr-[12px]  h-[40px] w-[40px] rounded-full cursor-pointer ">
+        <div className="h-[100%] w-[100%] flex justify-center">
           <Image
-            width={40}
-            height={40}
-            loading="lazy"
+           width={40}
+           height={40}
+           loading="lazy"
             src={`${userProfile}`}
             alt=""
             className="object-cover flex rounded-full"
@@ -59,7 +59,7 @@ const UserProfile = () => {
           <div className='text-[#536471]'>@{username}</div>
         </div>
         <div onClick={handleLogin} className="justify-end w-[100%] hidden lg:flex cursor-pointer text-[#536471] font-bold">
-          <BsThreeDots style={{ fontWeight: "bold", display: "block", color: "black", height: "18.75px", width: "18.75px" }} />
+          <BsThreeDots style={{fontWeight:"bold",display:"block",color:"black",height:"18.75px",width:"18.75px"}} />
         </div>
       </div>
     </div>
